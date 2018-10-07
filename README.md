@@ -1,24 +1,39 @@
-# README
+# Anime review, rating website use Rails
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+## How to run
 
-* Ruby version
+### Ruby and Rails:
 
-* System dependencies
+Setup development environment, link here: https://gorails.com/setup
+Install mysql also is requied.
 
-* Configuration
+### Download and run it:
 
-* Database creation
+Download source code and open terminal inside it:
+```
+$ cd it3_jungle_boys
+```
+First, rename database.yml.example to database.yml
+```
+$ mv config/database.yml.example config/database.yml
+```
+Then install library:
+```
+$ bundle install
+```
+Create database:
+```
+$ rails db:migrate:reset
+```
+Seed some data to database:
+```
+$ rails db:seed
+```
+Run rails server:
+```
+$ rails server
+```
+Last, open browser to address: "localhost:3000"
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Hope you enjoy it!
