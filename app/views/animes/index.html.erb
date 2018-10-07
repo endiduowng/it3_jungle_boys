@@ -1,0 +1,53 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Animes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Producer</th>
+      <th>Licencer</th>
+      <th>Episode</th>
+      <th>Premiered</th>
+      <th>Studio</th>
+      <th>Source</th>
+      <th>Genre</th>
+      <th>Duration</th>
+      <th>Picture</th>
+      <th>Rating</th>
+      <th>Score</th>
+      <th>Description</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @animes.each do |anime| %>
+      <tr>
+        <td><%= anime.name %></td>
+        <td><%= anime.type %></td>
+        <td><%= anime.producer %></td>
+        <td><%= anime.licencer %></td>
+        <td><%= anime.episode %></td>
+        <td><%= anime.premiered %></td>
+        <td><%= anime.studio %></td>
+        <td><%= anime.source %></td>
+        <td><%= anime.genre %></td>
+        <td><%= anime.duration %></td>
+        <td><%= anime.picture %></td>
+        <td><%= anime.rating %></td>
+        <td><%= anime.score %></td>
+        <td><%= anime.description %></td>
+        <td><%= link_to 'Show', anime %></td>
+        <td><%= link_to 'Edit', edit_anime_path(anime) %></td>
+        <td><%= link_to 'Destroy', anime, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Anime', new_anime_path %>
