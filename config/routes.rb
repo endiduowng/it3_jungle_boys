@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
-  root 'static_pages#home'
+  resources :animes
+  root "animes#index"
 
-  devise_for :users
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  # root to: "home#index"
+  devise_for :users, controllers: {
+    sessions: "users/sessions",
+    registrations: "users/registrations",
+    passwords: "users/passwords",
+    confirmations: "users/confirmations"
+  }
 end

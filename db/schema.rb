@@ -10,7 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181005153244) do
+ActiveRecord::Schema.define(version: 20181006145819) do
+
+  create_table "animes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "name"
+    t.string "type"
+    t.string "producer"
+    t.string "licencer"
+    t.integer "episode"
+    t.date "premiered"
+    t.string "studio"
+    t.string "source"
+    t.string "genre"
+    t.integer "duration"
+    t.string "picture"
+    t.string "rating"
+    t.integer "score"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "email", default: "", null: false

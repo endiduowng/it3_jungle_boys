@@ -1,0 +1,74 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @anime.name %>
+</p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @anime.type %>
+</p>
+
+<p>
+  <strong>Producer:</strong>
+  <%= @anime.producer %>
+</p>
+
+<p>
+  <strong>Licencer:</strong>
+  <%= @anime.licencer %>
+</p>
+
+<p>
+  <strong>Episode:</strong>
+  <%= @anime.episode %>
+</p>
+
+<p>
+  <strong>Premiered:</strong>
+  <%= @anime.premiered %>
+</p>
+
+<p>
+  <strong>Studio:</strong>
+  <%= @anime.studio %>
+</p>
+
+<p>
+  <strong>Source:</strong>
+  <%= @anime.source %>
+</p>
+
+<p>
+  <strong>Genre:</strong>
+  <%= @anime.genre %>
+</p>
+
+<p>
+  <strong>Duration:</strong>
+  <%= @anime.duration %>
+</p>
+
+<p>
+  <strong>Picture:</strong>
+  <%= @anime.picture %>
+</p>
+
+<p>
+  <strong>Rating:</strong>
+  <%= @anime.rating %>
+</p>
+
+<p>
+  <strong>Score:</strong>
+  <%= @anime.score %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @anime.description %>
+</p>
+
+<%= link_to 'Edit', edit_anime_path(@anime) %> |
+<%= link_to 'Back', animes_path %>

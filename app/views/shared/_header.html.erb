@@ -1,0 +1,44 @@
+<div id="myanimelist">
+  <div class="wrapper ">
+      <div id="headerSmall" class="" style="background-image: url(/images/logo);">
+          <div id="header-menu">
+              <div class="header-menu-login">
+                  <%= link_to "Log in", new_user_session_path, class: "btn-login", id: "malLogin" %>
+                  <%= link_to "Sign up", new_user_registration_path, class: "btn-signup" %>
+              </div>
+          </div>
+          <a href="/" class="link-mal-logo">MyWibuList</a>
+      </div>
+
+      <div id="menu" class="">
+          <div id="menu_right">
+              <div id="top-search-bar">
+                  <form id="searchBar" method="get" class="searchBar">
+                      <div class="form-select-outer fl-l">
+                          <select name="type" id="topSearchValue" class="inputtext" v-model="type">
+                              <option value="all">All</option>
+                              <option value="anime">Anime</option>
+                              <option value="manga">Manga</option>
+                          </select>
+                      </div>
+                      <input type="text" name="keyword" class="inputtext fl-l" placeholder="Search Anime, Manga, and more..." size="30" autocomplete="off" style="height:20px;">
+                      <button type="submit">Search</button>
+                  </form>
+              </div>
+          </div>
+          <div id="menu_left">
+              <ul id="nav">
+                  <li class="small"><a href="#" class="non-link">Anime</a>
+                  </li>
+                  <li class="small"><a href="#" class="non-link">Manga</a>
+                  </li>
+                  <li class=""><a href="#" class="non-link">Community</a>
+                  </li>
+
+              </ul>
+          </div>
+      </div> <!--  control container height -->
+      <div style="clear:both;"></div>
+      <!-- end rightbody -->
+  </div>
+</div>
