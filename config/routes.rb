@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
   resources :animes
-  root 'static_pages#home'
+  root "animes#index"
 
   devise_for :users, controllers: {
-    sessions: 'users/sessions',
+    sessions: "users/sessions",
     registrations: "users/registrations",
     passwords: "users/passwords",
     confirmations: "users/confirmations"
