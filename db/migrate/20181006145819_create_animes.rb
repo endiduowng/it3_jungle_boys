@@ -2,7 +2,7 @@ class CreateAnimes < ActiveRecord::Migration[5.1]
   def change
     create_table :animes do |t|
       t.string :name
-      t.string :type
+      t.string :kind
       t.string :producer
       t.string :licencer
       t.integer :episode
