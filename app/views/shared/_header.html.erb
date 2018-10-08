@@ -1,6 +1,6 @@
 <div id="myanimelist">
   <div class="wrapper ">
-      <div id="headerSmall" class="">
+      <div id="headerSmall" class="" style="background-image: url(<%= image_path('logo.png') %>);">
           <div id="header-menu">
               <div class="header-menu-login">
                   <% if !user_signed_in? %>
@@ -26,7 +26,7 @@
                               <option value="manga">Manga</option>
                           </select>
                       </div>
-                      <input type="text" name="keyword" class="inputtext fl-l" placeholder="Search Anime, Manga, and more..." size="30" autocomplete="off" style="height:20px;">
+                      <input type="text" name="keyword" class="inputtext fl-l" placeholder="Search Anime, Manga, and more..." size="30" autocomplete="off" style="height:14px;">
                       <button type="submit">Search</button>
                   </form>
               </div>
