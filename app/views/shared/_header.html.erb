@@ -1,10 +1,15 @@
 <div id="myanimelist">
   <div class="wrapper ">
-      <div id="headerSmall" class="" style="background-image: url(/images/logo);">
+      <div id="headerSmall" class="">
           <div id="header-menu">
               <div class="header-menu-login">
-                  <%= link_to "Log in", new_user_session_path, class: "btn-login", id: "malLogin" %>
-                  <%= link_to "Sign up", new_user_registration_path, class: "btn-signup" %>
+                  <% if !user_signed_in? %>
+                    <%= link_to "Log in", new_user_session_path, class: "btn-login", id: "malLogin" %>
+                    <%= link_to "Sign up", new_user_registration_path, class: "btn-signup" %>
+                  <% else %>
+                    <%= link_to current_user.email, user_path(current_user) %>
+                    <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "btn-login" %>
+                  <% end %>
               </div>
           </div>
           <a href="/" class="link-mal-logo">MyWibuList</a>
