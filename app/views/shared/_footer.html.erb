@@ -11,8 +11,11 @@
               <a href="">Privacy</a>
           </p>
           <p class="footer-link login di-ib">
-              <%= link_to "Log in", new_user_session_path, id: "malLogin", rel: "nofollow" %>
-              <%= link_to "Sign up", new_user_registration_path %>
+            <% if !user_signed_in? %>
+                <%= link_to "Log in", new_user_session_path, id: "malLogin", rel: "nofollow" %>
+                <%= link_to "Sign up", new_user_registration_path %>
+            <% end %>
+              
           </p>
       </div>
       <div id="copyright">
