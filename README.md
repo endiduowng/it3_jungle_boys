@@ -3,12 +3,11 @@
 
 ## How to run
 
-### Ruby and Rails:
+### Setup development environment:
 
-Setup development environment, link here: https://gorails.com/setup
-Install mysql also is requied.
+Go here: https://gorails.com/setup, choose your OS's version and following instructions to install Ruby, Rails and MySQL.
 
-### Download and run it:
+### Download source code, library:
 
 Download source code and open terminal inside it:
 ```
@@ -22,18 +21,48 @@ Then install library:
 ```
 $ bundle install
 ```
-Create database:
+### Create database
+
+Log in to MySQL as the root user:
 ```
-$ rails db:migrate:reset
+$ mysql -u root -p
+```
+Type the MySQL root password, and then press Enter.
+
+In MySQL tool create new user.(replace 'username' and 'password' to whatever you want):
+```
+mysql> GRANT ALL PRIVILEGES ON *.* TO 'username'@'localhost' IDENTIFIED BY 'password';
+```
+Type \q to exit the mysql program.
+
+To log in to MySQL as the user you just created, type the following command:
+```
+$ mysql -u username -p
+```
+Type the user's password, and then press Enter.
+
+To create a database, type the following command.
+```
+mysql> CREATE DATABASE itnihongo3_development;
+```
+Type \q to exit the mysql program.
+
+Update MySQL username, password to database.yml (line 16, 17) 
+
+### Create table and data
+Create database's tables using migration:
+```
+$ rails db:migrate
 ```
 Seed some data to database:
 ```
 $ rails db:seed
 ```
-Run rails server:
+### Server
+Finally, run rails server:
 ```
 $ rails server
 ```
-Last, open browser to address: "localhost:3000"
+Open browser and go to address: "localhost:3000"
 
 Hope you enjoy it!
