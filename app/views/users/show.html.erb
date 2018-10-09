@@ -1,1 +1,91 @@
-<h1><%= @user.email %></h1>
+<div class="container">
+  <div class="row header border-bottom">
+    <div class="row profile-name align-items-center">
+      <div class="user-name col-12 text-center">Pham Duc Hien's profile</div>
+    </div>
+  </div>
+  <div class="border row content">
+    <div class="right-content col-3">
+
+      <div class="border row profile-pic well">
+        <div clas="profile-pic col-12">
+          <%= image_tag ("3b.jpg"), class: "img-circle img-responsive", alt: "Profile pic" %>
+        </div>
+      </div>
+
+      <div class="border row user-func well">
+        <div class="up-pic col-4">
+          <span class="glyphicon glyphicon-camera"></span>
+        </div>
+        <div class="change-pass col-4">
+          <span class="glyphicon glyphicon-lock"></span>
+        </div>
+        <div class="edit-pro col-4">
+          <span class="glyphicon glyphicon-edit"></span>
+        </div>
+      </div>
+      <div class="border row info">
+        <div class="review-num col-12">
+          <div class="row border">
+            <div class="col-6">Anime reviews</div>
+            <div class="col-6">100</div>
+          </div>
+        </div>
+        <div class="joined-date col-12">
+          <div class="row border">
+            <div class="col-6">Joined date</div>
+            <div class="col-6">10/05/2016</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="border right-content col-9">
+      <div class="border row favorite">
+        <div class="favorite col-12" style="font-size:20px"><strong>Favorite Animes</strong></div>
+      </div>
+
+
+      <div class="border row align-items-center">
+        <div class="anime col-sm-1 text-center border">No</div>
+        <div class="anime col-sm-4 text-center">Anime</div>
+        <div class="rating col-sm-3">Rating</div>
+        <div class="ranking col-sm-3">Ranking</div>
+        <div class="remove col-sm-1"></div>
+      </div>
+      <!-- loop -->
+      <div class="border row align-items-center">
+        <div class="no col-1">1</div>
+        <div class="anime col-2 border-left"><%= image_tag ("ghoul.jpg"), class: "img-responsive", height: "80px", width: "80px" %></div>
+        <div class="anime-name col-2">Tokyou Ghoul</div>
+        <div class="rating col-3">
+          <span class="glyphicon glyphicon-star"></span>
+          <span class="glyphicon glyphicon-star"></span>
+          <span class="glyphicon glyphicon-star"></span>
+        </div>
+        <div class="ranking col-3">40</div>
+        <div class="remove col-1">
+          <span class="glyphicon glyphicon-trash"></span>
+        </div>
+      </div>
+      <!-- -->
+
+      <div class="border row align-items-center">
+        <div class="no col-1">2</div>
+        <div class="anime col-2 border-left"><%= image_tag ("a.jpg"), class: "img-responsive", height: "80px", width: "80px" %></div>
+        <div class="anime-name col-2">Vung dat lin hon</div>
+        <div class="rating col-3">
+          <span class="glyphicon glyphicon-star"></span>
+          <span class="glyphicon glyphicon-star"></span>
+        </div>
+        <div class="ranking col-3">40</div>
+        <div class="remove col-1">
+          <span class="glyphicon glyphicon-trash"></span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
