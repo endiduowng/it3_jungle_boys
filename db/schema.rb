@@ -14,7 +14,7 @@ ActiveRecord::Schema.define(version: 20181006145819) do
 
   create_table "animes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
-    t.string "kind"
+    t.string "type"
     t.string "producer"
     t.string "licencer"
     t.integer "episode"
