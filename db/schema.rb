@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 20181006145819) do
     t.string "name"
     t.string "kind"
     t.string "producer"
-    t.string "licencer"
+    t.string "licensor"
     t.integer "episode"
     t.date "premiered"
     t.string "studio"

@@ -4,7 +4,7 @@ one:
   name: MyString
   type: 
   producer: MyString
-  licencer: MyString
+  licensor: MyString
   episode: 1
   premiered: 2018-10-06
   studio: MyString
@@ -20,7 +20,7 @@ two:
   name: MyString
   type: 
   producer: MyString
-  licencer: MyString
+  licensor: MyString
   episode: 1
   premiered: 2018-10-06
   studio: MyString

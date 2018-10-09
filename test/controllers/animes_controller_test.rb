@@ -17,7 +17,7 @@ class AnimesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create anime" do
     assert_difference('Anime.count') do
-      post animes_url, params: { anime: { description: @anime.description, duration: @anime.duration, episode: @anime.episode, genre: @anime.genre, licencer: @anime.licencer, name: @anime.name, picture: @anime.picture, premiered: @anime.premiered, producer: @anime.producer, rating: @anime.rating, score: @anime.score, source: @anime.source, studio: @anime.studio, type: @anime.type } }
+      post animes_url, params: { anime: { description: @anime.description, duration: @anime.duration, episode: @anime.episode, genre: @anime.genre, licensor: @anime.licensor, name: @anime.name, picture: @anime.picture, premiered: @anime.premiered, producer: @anime.producer, rating: @anime.rating, score: @anime.score, source: @anime.source, studio: @anime.studio, type: @anime.type } }
     end
 
     assert_redirected_to anime_url(Anime.last)
@@ -34,7 +34,7 @@ class AnimesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update anime" do
-    patch anime_url(@anime), params: { anime: { description: @anime.description, duration: @anime.duration, episode: @anime.episode, genre: @anime.genre, licencer: @anime.licencer, name: @anime.name, picture: @anime.picture, premiered: @anime.premiered, producer: @anime.producer, rating: @anime.rating, score: @anime.score, source: @anime.source, studio: @anime.studio, type: @anime.type } }
+    patch anime_url(@anime), params: { anime: { description: @anime.description, duration: @anime.duration, episode: @anime.episode, genre: @anime.genre, licensor: @anime.licensor, name: @anime.name, picture: @anime.picture, premiered: @anime.premiered, producer: @anime.producer, rating: @anime.rating, score: @anime.score, source: @anime.source, studio: @anime.studio, type: @anime.type } }
     assert_redirected_to anime_url(@anime)
   end
 
