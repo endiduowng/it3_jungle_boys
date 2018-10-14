@@ -9,15 +9,7 @@
 
       <div class="border row profile-pic well">
         <div clas="profile-pic col-12">
-          <% if current_user.image.url.present? %>
-            <%= image_tag (current_user.image.url), class: "img-circle img-responsive", alt: "Profile pic" %>
-          <% else %>
-            <%= link_to edit_user_registration_path, class: "btn-detail-add-picture" do %>
-              <%= content_tag :i, nil, :class => "fa fa-plus-circle fs18 icon-plus-circle" %>
-              <%= content_tag :i, nil, :class => "fa fa-camera fs48" %><br>
-              <%= content_tag :span, "Add Picture", :class => "text" %>
-            <% end %>
-          <% end %>  
+          <%= image_tag ("3b.jpg"), class: "img-circle img-responsive", alt: "Profile pic" %>
         </div>
       </div>
 
