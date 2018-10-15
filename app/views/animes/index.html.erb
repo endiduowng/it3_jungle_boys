@@ -1,53 +1,413 @@
 <p id="notice"><%= notice %></p>
+  <div id="myanimelist">
+    <div class="wrapper ">
+      <div id="contentWrapper">
+        <div>
+          <h1 class="h1">Welcome to MyWibuList.net!</h1>
+        </div>
+        <div id="content">
+          <div class="left-column pt12">
+            <article>
+              <div class="widget seasonal left">
+                <h3 class="widget-header">
+                  <span style="float: right;">
+                    <a href="/anime/season" style="font-weight: normal; font-size: 11px;">View More</a>
+                  </span>
+                  Fall 2018 Anime
+                </h3>
+                <div class="widget-content">
+                  <div class="widget-slide-block " id="widget-seasonal-video">
+                    <div class="widget-slide-outer">
+                      <ul class="widget-slide js-widget-slide" data-slide="4" style="width: 3984px; margin-left: 0px;">
+                        <%= render "fall_2018_anime" %>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </article>
 
-<h1>Animes</h1>
+            <article>
+              <div class="widget seasonal left">
+                <h3 class="widget-header">
+                  <span style="float: right;">
+                    <a href="/anime/..." style="font-weight: normal; font-size: 11px;">View More</a>
+                  </span>
+                  Latest Updated Episode Videos
+                </h3>
+                <div class="widget-content">
+                  <div class="widget-slide-block " id="widget-seasonal-video">
+                    <div class="widget-slide-outer">
+                      <ul class="widget-slide js-widget-slide" data-slide="4" style="width: 3984px; margin-left: 0px;">
+                        <%= render "latest_updated_episode_videos" %>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </article>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Kind</th>
-      <th>Producer</th>
-      <th>Licencer</th>
-      <th>Episode</th>
-      <th>Premiered</th>
-      <th>Studio</th>
-      <th>Source</th>
-      <th>Genre</th>
-      <th>Duration</th>
-      <th>Picture</th>
-      <th>Rating</th>
-      <th>Score</th>
-      <th>Description</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+            <article>
+              <div class="widget reviews left">
+                <h3 class="widget-header">
+                  <span style="float: right;">
+                    <a href="/reviews" style="font-weight: normal; font-size: 11px;">View More</a>
+                  </span>
+                  Latest Anime Reviews</h3>
+                <div class="widget-content">
 
-  <tbody>
-    <% @animes.each do |anime| %>
-      <tr>
-        <td><%= anime.name %></td>
-        <td><%= anime.kind %></td>
-        <td><%= anime.producer %></td>
-        <td><%= anime.licencer %></td>
-        <td><%= anime.episode %></td>
-        <td><%= anime.premiered %></td>
-        <td><%= anime.studio %></td>
-        <td><%= anime.source %></td>
-        <td><%= anime.genre %></td>
-        <td><%= anime.duration %></td>
-        <td><%= anime.picture %></td>
-        <td><%= anime.rating %></td>
-        <td><%= anime.score %></td>
-        <td><%= anime.description %></td>
-        <td><%= link_to 'Show', anime %></td>
-        <td><%= link_to 'Edit', edit_anime_path(anime) %></td>
-        <td><%= link_to 'Destroy', anime, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+                  <div class="item">
+                    <div class="image">
+                      <div class="picSurround">
+                        <%= image_tag ("a.jpg"), width: "50", height: "70", alt: "Aniaame Title", class: "hoverinfo_trigger lazyloaded", id: "#revArea35849", rel: "#revInfo35849" %>
+                      </div>
+                    </div>
+                    <div class="info">
+                      <div class="spaceit mt0 pt0">
+                        <span class="fs10 lightLink di-ib fl-r">
+                          Overall Rating: 1
+                        </span>
+                        <a href="/anime/35849/Darling_in_the_FranXX">
+                          <strong>Anime Title</strong>
+                        </a>
+                      </div>
+                      <div class="textReadability">
+                        It is a long established fact that a reader will be distracted by the readable content of a
+                        page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less
+                        normal distribution of letters,h....
+                      </div>
+                      <div class="spaceit lightLink pb0">
+                        1 hour ago by
+                        <a href="/profile/Sasori_Nagashi" alt="Sasori_Nagashi">
+                          Sasori_Nagashi
+                        </a>
+                      </div>
+                    </div>
+                  </div>
 
-<br>
+                  <div class="item">
+                    <div class="image">
+                      <div class="picSurround">
+                        <%= image_tag ("a.jpg"), width: "50", height: "70", alt: "Aniaame Title", class: "hoverinfo_trigger lazyloaded", id: "#revArea35849", rel: "#revInfo35849" %>
+                      </div>
+                    </div>
+                    <div class="info">
+                      <div class="spaceit mt0 pt0">
+                        <span class="fs10 lightLink di-ib fl-r">
+                          Overall Rating: 1
+                        </span>
+                        <a href="/anime/35849/Darling_in_the_FranXX">
+                          <strong>Anime Title</strong>
+                        </a>
+                      </div>
+                      <div class="textReadability">
+                        It is a long established fact that a reader will be distracted by the readable content of a
+                        page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less
+                        normal distribution of letters,h....
+                      </div>
+                      <div class="spaceit lightLink pb0">
+                        1 hour ago by
+                        <a href="/profile/Sasori_Nagashi" alt="Sasori_Nagashi">
+                          Sasori_Nagashi
+                        </a>
+                      </div>
+                    </div>
+                  </div>
 
-<%= link_to 'New Anime', new_anime_path %>
+                  <div class="item">
+                    <div class="image">
+                      <div class="picSurround">
+                        <%= image_tag ("a.jpg"), width: "50", height: "70", alt: "Aniaame Title", class: "hoverinfo_trigger lazyloaded", id: "#revArea35849", rel: "#revInfo35849" %>
+                      </div>
+                    </div>
+                    <div class="info">
+                      <div class="spaceit mt0 pt0">
+                        <span class="fs10 lightLink di-ib fl-r">
+                          Overall Rating: 1
+                        </span>
+                        <a href="/anime/35849/Darling_in_the_FranXX">
+                          <strong>Anime Title</strong>
+                        </a>
+                      </div>
+                      <div class="textReadability">
+                        It is a long established fact that a reader will be distracted by the readable content of a
+                        page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less
+                        normal distribution of letters,h....
+                      </div>
+                      <div class="spaceit lightLink pb0">
+                        1 hour ago by
+                        <a href="/profile/Sasori_Nagashi" alt="Sasori_Nagashi">
+                          Sasori_Nagashi
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="item">
+                    <div class="image">
+                      <div class="picSurround">
+                        <%= image_tag ("a.jpg"), width: "50", height: "70", alt: "Aniaame Title", class: "hoverinfo_trigger lazyloaded", id: "#revArea35849", rel: "#revInfo35849" %>
+                      </div>
+                    </div>
+                    <div class="info">
+                      <div class="spaceit mt0 pt0">
+                        <span class="fs10 lightLink di-ib fl-r">
+                          Overall Rating: 1
+                        </span>
+                        <a href="/anime/35849/Darling_in_the_FranXX">
+                          <strong>Anime Title</strong>
+                        </a>
+                      </div>
+                      <div class="textReadability">
+                        It is a long established fact that a reader will be distracted by the readable content of a
+                        page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less
+                        normal distribution of letters,h....
+                      </div>
+                      <div class="spaceit lightLink pb0">
+                        1 hour ago by
+                        <a href="/profile/Sasori_Nagashi" alt="Sasori_Nagashi">
+                          Sasori_Nagashi
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="item">
+                    <div class="image">
+                      <div class="picSurround">
+                        <%= image_tag ("a.jpg"), width: "50", height: "70", alt: "Aniaame Title", class: "hoverinfo_trigger lazyloaded", id: "#revArea35849", rel: "#revInfo35849" %>
+                      </div>
+                    </div>
+                    <div class="info">
+                      <div class="spaceit mt0 pt0">
+                        <span class="fs10 lightLink di-ib fl-r">
+                          Overall Rating: 1
+                        </span>
+                        <a href="/anime/35849/Darling_in_the_FranXX">
+                          <strong>Anime Title</strong>
+                        </a>
+                      </div>
+                      <div class="textReadability">
+                        It is a long established fact that a reader will be distracted by the readable content of a
+                        page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less
+                        normal distribution of letters,h....
+                      </div>
+                      <div class="spaceit lightLink pb0">
+                        1 hour ago by
+                        <a href="/profile/Sasori_Nagashi" alt="Sasori_Nagashi">
+                          Sasori_Nagashi
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+          </div>
+          <div class="right-column cod">
+            <article class="widget">
+              <div class="widget airing_ranking right">
+
+                <div class="ranking-digest">
+                  <h2 class="ranking-header"><a class="btn-view_more" href="/topanime">More</a>Top Airing Anime</h2>
+                  <ul>
+                    <li class="ranking-unit">
+                      <span class="rank">1</span>
+                      <p class="data-image">
+                        <%= image_tag ("ghoul.jpg"), width: "50", height: "70", alt: "Aniaame Title", class: "image lazyloaded" %>
+                      </p>
+                      <p class="data">
+                        <a class="title" href="/anime/37991/JoJo_no_Kimyou_na_Bouken__Ougon_no_Kaze">Anime Title</a>
+                        <span class="info pt8">
+                          TV,
+                          39 eps,
+                          scored 8.87
+                        </span><br>
+                        <span class="members pb8">66,725 members</span>
+                      </p>
+                    </li>
+
+                    <li class="ranking-unit">
+                      <span class="rank">2</span>
+                      <p class="data-image">
+                        <a class="image" href="/anime/animeID">
+                          <%= image_tag ("ghoul.jpg"), width: "50", height: "70", alt: "Aniaame Title", class: "image lazyloaded" %>
+                        </a>
+                      </p>
+                      <p class="data">
+                        <a class="title" href="/anime/37991/JoJo_no_Kimyou_na_Bouken__Ougon_no_Kaze">Anime Title</a>
+                        <span class="info pt8">
+                          TV,
+                          39 eps,
+                          scored 8.87
+                        </span><br>
+                        <span class="members pb8">66,725 members</span>
+                      </p>
+                    </li>
+
+                    <li class="ranking-unit">
+                      <span class="rank">3</span>
+                      <p class="data-image">
+                        <a class="image" href="/anime/animeID">
+                          <%= image_tag ("ghoul.jpg"), width: "50", height: "70", alt: "Aniaame Title", class: "image lazyloaded" %>
+                        </a>
+                      </p>
+                      <p class="data">
+                        <a class="title" href="/anime/37991/JoJo_no_Kimyou_na_Bouken__Ougon_no_Kaze">Anime Title</a>
+                        <span class="info pt8">
+                          TV,
+                          39 eps,
+                          scored 8.87
+                        </span><br>
+                        <span class="members pb8">66,725 members</span>
+                      </p>
+                    </li>
+
+                    <li class="ranking-unit">
+                      <span class="rank">4</span>
+                      <p class="data-image">
+                        <a class="image" href="/anime/animeID">
+                          <%= image_tag ("ghoul.jpg"), width: "50", height: "70", alt: "Aniaame Title", class: "image lazyloaded" %>
+                        </a>
+                      </p>
+                      <p class="data">
+                        <a class="title" href="/anime/37991/JoJo_no_Kimyou_na_Bouken__Ougon_no_Kaze">Anime Title</a>
+                        <span class="info pt8">
+                          TV,
+                          39 eps,
+                          scored 8.87
+                        </span><br>
+                        <span class="members pb8">66,725 members</span>
+                      </p>
+                    </li>
+
+                    <li class="ranking-unit">
+                      <span class="rank">5</span>
+                      <p class="data-image">
+                        <a class="image" href="/anime/animeID">
+                          <%= image_tag ("ghoul.jpg"), width: "50", height: "70", alt: "Aniaame Title", class: "image lazyloaded" %>
+                        </a>
+                      </p>
+                      <p class="data">
+                        <a class="title" href="/anime/37991/JoJo_no_Kimyou_na_Bouken__Ougon_no_Kaze">Anime Title</a>
+                        <span class="info pt8">
+                          TV,
+                          39 eps,
+                          scored 8.87
+                        </span><br>
+                        <span class="members pb8">66,725 members</span>
+                      </p>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </article>
+
+            <article class="widget">
+              <div class="widget upcoming_ranking right">
+
+                <div class="ranking-digest">
+                  <h2 class="ranking-header"><a class="btn-view_more" href="/upcoming">More</a>Top Upcoming Anime</h2>
+                  <ul>
+                    <li class="ranking-unit">
+                      <span class="rank">1</span>
+                      <p class="data-image">
+                        <a class="image" href="/anime/animeID">
+                          <%= image_tag ("a.jpg"), width: "50", height: "70", alt: "Aniaame Title", class: "image lazyloaded" %>
+                        </a>
+                      </p>
+                      <p class="data">
+                        <a class="title" href="/anime/anime-id">Title</a>
+                        <span class="info pt8">
+                          TV,
+                          0 eps,
+                          scored N/A
+                        </span><br>
+                        <span class="members pb8">266,829 members</span>
+                      </p>
+                    </li>
+
+                    <li class="ranking-unit">
+                      <span class="rank">2</span>
+                      <p class="data-image">
+                        <a class="image" href="/anime/animeID">
+                          <%= image_tag ("a.jpg"), width: "50", height: "70", alt: "Aniaame Title", class: "image lazyloaded" %>
+                        </a>
+                      </p>
+                      <p class="data">
+                        <a class="title" href="/anime/anime-id">Title</a>
+                        <span class="info pt8">
+                          TV,
+                          0 eps,
+                          scored N/A
+                        </span><br>
+                        <span class="members pb8">266,829 members</span>
+                      </p>
+                    </li>
+
+                    <li class="ranking-unit">
+                      <span class="rank">3</span>
+                      <p class="data-image">
+                        <a class="image" href="/anime/animeID">
+                          <%= image_tag ("a.jpg"), width: "50", height: "70", alt: "Aniaame Title", class: "image lazyloaded" %>
+                        </a>
+                      </p>
+                      <p class="data">
+                        <a class="title" href="/anime/anime-id">Title</a>
+                        <span class="info pt8">
+                          TV,
+                          0 eps,
+                          scored N/A
+                        </span><br>
+                        <span class="members pb8">266,829 members</span>
+                      </p>
+                    </li>
+
+                    <li class="ranking-unit">
+                      <span class="rank">4</span>
+                      <p class="data-image">
+                        <a class="image" href="/anime/animeID">
+                          <%= image_tag ("a.jpg"), width: "50", height: "70", alt: "Aniaame Title", class: "image lazyloaded" %>
+                        </a>
+                      </p>
+                      <p class="data">
+                        <a class="title" href="/anime/anime-id">Title</a>
+                        <span class="info pt8">
+                          TV,
+                          0 eps,
+                          scored N/A
+                        </span><br>
+                        <span class="members pb8">266,829 members</span>
+                      </p>
+                    </li>
+
+                    <li class="ranking-unit">
+                      <span class="rank">5</span>
+                      <p class="data-image">
+                        <a class="image" href="/anime/animeID">
+                          <%= image_tag ("a.jpg"), width: "50", height: "70", alt: "Aniaame Title", class: "image lazyloaded" %>
+                        </a>
+                      </p>
+                      <p class="data">
+                        <a class="title" href="/anime/anime-id">Title</a>
+                        <span class="info pt8">
+                          TV,
+                          0 eps,
+                          scored N/A
+                        </span><br>
+                        <span class="members pb8">266,829 members</span>
+                      </p>
+                    </li>
+
+                  </ul>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div> <!--  control container height -->
+      <div style="clear:both;"></div>
+      <!-- end rightbody -->
+    </div>
+  </div>
