@@ -1,74 +1,447 @@
-<p id="notice"><%= notice %></p>
+<html>
+<head>
+    <title>
+    <%= @anime.name %> - MyWibuList
+    </title>
+    <link rel="search" type="application/opensearchdescription+xml" href="https://myanimelist.net/plugins/myanimelist.xml" title="MyAnimeList" />
+    <link rel="shortcut icon" href="https://myanimelist.cdn-dena.com/images/faviconv5.ico" />
+</head>
 
-<p>
-  <strong>Name:</strong>
-  <%= @anime.name %>
-</p>
+<body onload=" " class="page-common">
+<div id="myanimelist">
+        <div class="_unit " style="width:1px;display: block !important;" data-height="1">
+      <div id="skin_detail" class="" style="width:1px;">
+      </div>
+    </div>
+    <div id="ad-skin-bg-left" class="ad-skin-side-outer ad-skin-side-bg bg-left">
+    <div id="ad-skin-left" class="ad-skin-side left" style="display: none;">
+      <div id="ad-skin-left-absolute-block">
+        <div id="ad-skin-left-fixed-block"></div>
+      </div>
+    </div>
+  </div>
+  <div id="contentWrapper" itemscope itemtype="http://schema.org/Product">
+    <div>
+      <div class="header-right">
 
-<p>
-  <strong>Kind:</strong>
-  <%= @anime.kind %>
-</p>
+      <%= link_to 'Edit Anime Infomation', edit_anime_path(@anime), class: "js-anime-edit-info-button" %>
+      </div>
+      <h1 class="h1"><span itemprop="name"><%= @anime.name %></span></h1>
+    </div>
+  <div id="content" >
 
-<p>
-  <strong>Producer:</strong>
-  <%= @anime.producer %>
-</p>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+	 <td class="borderClass" width="225" style="border-width: 0 1px 0 0;" valign="top"><div class="js-scrollfix-bottom" style="width: 225px">
 
-<p>
-  <strong>Licencer:</strong>
-  <%= @anime.licencer %>
-</p>
+  <div style="text-align: center;">
+    <a href="https://myanimelist.net/anime/36474/Sword_Art_Online__Alicization/pics">
+      <img src="https://myanimelist.cdn-dena.com/images/anime/1993/93837.jpg" alt="Sword Art Online: Alicization" class="ac" itemprop="image">
+    </a>
+  </div>
 
-<p>
-  <strong>Episode:</strong>
+<!-- My List -->
+<div class="profileRows pb0">
+  <a href="https://myanimelist.net/login.php?from=%2Fanime%2F36474%2FSword_Art_Online__Alicization&amp;error=login_required">Add to My List</a>
+  <br />
+</div>
+<!-- end My List -->
+
+<!-- INFO -->
+
+  <h2>Alternative Titles</h2>
+  <div class="spaceit_pad">
+    <span class="dark_text">English:</span> <%= @anime.name %>
+  </div>
+  <div class="spaceit_pad">
+    <span class="dark_text">Japanese:</span> <%= @anime.name %>
+  </div><br />
+
+<h2>Information</h2>
+
+<div>
+  <span class="dark_text">Type:</span>
+  <%= @anime.kind %> </div>
+
+<div class="spaceit">
+  <span class="dark_text">Episodes:</span>
   <%= @anime.episode %>
-</p>
+  </div>
 
-<p>
-  <strong>Premiered:</strong>
-  <%= @anime.premiered %>
-</p>
+<div>
+  <span class="dark_text">Status:</span>
+  Currently Airing
+  </div>
 
-<p>
-  <strong>Studio:</strong>
-  <%= @anime.studio %>
-</p>
+<div class="spaceit">
+  <span class="dark_text">Aired:</span>
+  Oct 7, 2018 to ?
+  </div>
 
-<p>
-  <strong>Source:</strong>
+  <div class="spaceit">
+    <span class="dark_text">Premiered:</span>
+    <%= @anime.premiered %>
+  </div>
+
+  <div class="spaceit">
+    <span class="dark_text">Producers:</span>
+    <%= @anime.producer %>
+  </div>
+
+  <div class="spaceit">
+    <span class="dark_text">Licensors:</span>
+    <%= @anime.licencer %>
+  </div>
+
+  <div>
+    <span class="dark_text">Studios:</span>
+    <%= @anime.studio %>
+  </div>
+
+<div class="spaceit">
+  <span class="dark_text">Source:</span>
   <%= @anime.source %>
-</p>
+</div>
 
-<p>
-  <strong>Genre:</strong>
+<div>
+  <span class="dark_text">Genres:</span>
   <%= @anime.genre %>
-</p>
+</div>
 
-<p>
-  <strong>Duration:</strong>
+<div class="spaceit">
+  <span class="dark_text">Duration:</span>
   <%= @anime.duration %>
-</p>
+</div>
 
-<p>
-  <strong>Picture:</strong>
-  <%= @anime.picture %>
-</p>
+<br />
 
-<p>
-  <strong>Rating:</strong>
+<h2>Statistics</h2>
+<div itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating" class="po-r js-statistics-info di-ib" data-id="info1">
+  <span class="dark_text">Score:</span>
+  <span itemprop="ratingValue"><%= @anime.score %></span>
+      <meta itemprop="bestRating" content="10">
+    <meta itemprop="worstRating" content="1">
+      <div class="statistics-info info1">
+  </div>
+</div>
+<div class="spaceit po-r js-statistics-info di-ib" data-id="info2">
+  <span class="dark_text">Ranked:</span>
+  #295
+    
+</div>
+<div>
+  <span class="dark_text">Rating:</span>
   <%= @anime.rating %>
-</p>
+</div>
+<div class="spaceit">
+  <span class="dark_text">Members:</span>
+    162,725
+</div>
+<div>
+  <span class="dark_text">Favorites:</span>
+  1,258
+</div>
 
-<p>
-  <strong>Score:</strong>
-  <%= @anime.score %>
-</p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @anime.description %>
-</p>
+  <div class="clearfix mauto mt16" style="width:160px;padding-right:10px">
+            
+        <div class="_unit " style="width:160px;display: block !important;" data-height="600">
+      <div id="pc_anime_detail_side_sky" class="" style="width:160px;">
+      
+      </div>
+    </div>  </div>
 
-<%= link_to 'Edit', edit_anime_path(@anime) %> |
-<%= link_to 'Back', animes_path %>
+</div></td>
+
+
+<!-- END INFO -->
+
+
+<td valign="top" style="padding-left: 5px;"><div class="js-scrollfix-bottom-rel"><a name="lower"></a>
+<div id="horiznav_nav" style="margin: 5px 0 10px 0;">
+  <ul style="margin-right: 0; padding-right: 0;">
+    <li><a href="#" class="horiznav_active">Details</a></li>
+    <li><a href="#">Videos</a></li>
+    <li><a href="#">Pictures</a></li>
+    <li><a href="#">Content</a></li>
+    <li><a href="#">Reviews</a></li>
+    <li><a href="#">Stats</a></li>
+    <li><a href="#">Theme</a></li>
+    <li><a href="#">Characters &amp; Staff</a></li>
+    </ul>
+</div>
+
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+	<tr>
+	<td valign="top"><div class="pb16">
+    <div class="di-t w100 mt12">
+      <div class="anime-detail-header-stats di-tc va-t ">
+        <div class="stats-block po-r clearfix">
+          <div class="fl-l score" data-title="score" title="indicates a weighted score. Please note that 'Not yet aired' titles are excluded.">
+            <%= @anime.score %>
+          </div>
+          <div class="di-ib ml12 pl20 pt8">
+            <span class="numbers ranked" title="based on the top anime page. Please note that 'Not yet aired' and 'R18+' titles are excluded.">Ranked <strong>#295</strong></span>
+            <span class="numbers members">Members <strong>162,725</strong></span>
+        </div>
+      </div>
+    </div>
+  <div class="js-myinfo-error badresult-text al pb4" style="display:none;"></div>
+</div>
+<h2><div class="floatRightHeader"><%= link_to 'Edit', edit_anime_path(@anime) %></div>Description</h2><span itemprop="description">
+  <%= @anime.description %></span>
+
+    </a></td></table>
+    
+    <br><h2><div class="floatRightHeader"><a href="#" style="font-weight: normal;">More characters</a>
+    </div>Characters & Voice Actors</h2><div class="detail-characters-list clearfix"><div class="left-column fl-l divider" style="width:392px;">
+    
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+    <tr>
+      <td valign="top" width="27" class="ac borderClass">
+        <div class="picSurround">
+          <a href="#" class="fw-n">
+            <img alt="Kirigaya, Kazuto" width="23" height="32" data-src="https://myanimelist.cdn-dena.com/r/23x32/images/characters/7/204821.webp?s=f6697fff6b11d4967304cc91a9f79b35" data-srcset="https://myanimelist.cdn-dena.com/r/23x32/images/characters/7/204821.webp?s=f6697fff6b11d4967304cc91a9f79b35 1x, https://myanimelist.cdn-dena.com/r/46x64/images/characters/7/204821.webp?s=7674741b4bd4173d6832e1bb5d0ac2b1 2x" class="lazyload" />
+          </a>
+        </div>
+      </td>
+      <td valign="top" class="borderClass">
+        <a href="#">Kirigaya, Kazuto</a>
+        <div class="spaceit_pad">
+          <small>Main</small>
+        </div>
+      </td>
+      
+      <td align="right" valign="top" class="borderClass">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr>
+            <td class="va-t ar pl4 pr4">
+              <a href="#">Matsuoka, Yoshitsugu</a><br>
+              <small>Japanese</small>
+            </td>
+            <td valign="top">
+              <div class="picSurround">
+                <a href="#">
+                  <img alt="Matsuoka, Yoshitsugu" width="23" height="32" data-src="https://myanimelist.cdn-dena.com/r/23x32/images/voiceactors/1/54133.jpg?s=96ec426258f7cc319e0a6d976b9ee6bc" data-srcset="https://myanimelist.cdn-dena.com/r/23x32/images/voiceactors/1/54133.jpg?s=96ec426258f7cc319e0a6d976b9ee6bc 1x, https://myanimelist.cdn-dena.com/r/46x64/images/voiceactors/1/54133.jpg?s=726c54583aaa8d6f2c2b7b29d5b34d6d 2x" class="lazyload" />
+                </a>
+              </div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    </table>
+  
+  <table border="0" cellpadding="0" cellspacing="0" width="100%">
+    <tr>
+      <td valign="top" width="27" class="ac borderClass">
+        <div class="picSurround">
+          <a href="https://myanimelist.net/character/55147/Shino_Asada" class="fw-n">
+            <img alt="Asada, Shino" width="23" height="32" data-src="https://myanimelist.cdn-dena.com/r/23x32/images/characters/10/235939.webp?s=a215f1a4c317499a8afe38c67e4a890c" data-srcset="https://myanimelist.cdn-dena.com/r/23x32/images/characters/10/235939.webp?s=a215f1a4c317499a8afe38c67e4a890c 1x, https://myanimelist.cdn-dena.com/r/46x64/images/characters/10/235939.webp?s=23983d6e4ddbc64bd5c91601dbcfb9cf 2x" class="lazyload" />
+          </a>
+        </div>
+      </td>
+      <td valign="top" class="borderClass">
+        <a href="https://myanimelist.net/character/55147/Shino_Asada">Asada, Shino</a>
+        <div class="spaceit_pad">
+          <small>Supporting</small>
+        </div>
+      </td>
+      <td align="right" valign="top" class="borderClass">
+                <table border="0" cellpadding="0" cellspacing="0"></table>
+              </td>
+    </tr>
+  </table></div><div class="left-right fl-r" style="width:392px;"><table border="0" cellpadding="0" cellspacing="0" width="100%">
+    <tr>
+      <td valign="top" width="27" class="ac borderClass">
+        <div class="picSurround">
+          <a href="https://myanimelist.net/character/36831/Suguha_Kirigaya" class="fw-n">
+            <img alt="Kirigaya, Suguha" width="23" height="32" data-src="https://myanimelist.cdn-dena.com/r/23x32/images/characters/9/192515.webp?s=a90cd1a54cc6d59e76df319889e4295b" data-srcset="https://myanimelist.cdn-dena.com/r/23x32/images/characters/9/192515.webp?s=a90cd1a54cc6d59e76df319889e4295b 1x, https://myanimelist.cdn-dena.com/r/46x64/images/characters/9/192515.webp?s=b48f111954fd81ed929a4e557220dee6 2x" class="lazyload" />
+          </a>
+        </div>
+      </td>
+      <td valign="top" class="borderClass">
+        <a href="https://myanimelist.net/character/36831/Suguha_Kirigaya">Kirigaya, Suguha</a>
+        <div class="spaceit_pad">
+          <small>Supporting</small>
+        </div>
+      </td>
+      <td align="right" valign="top" class="borderClass">
+                <table border="0" cellpadding="0" cellspacing="0"></table>
+              </td>
+    </tr>
+  </table>
+  
+  <table border="0" cellpadding="0" cellspacing="0" width="100%">
+    <tr>
+      <td valign="top" width="27" class="ac borderClass">
+        <div class="picSurround">
+          <a href="https://myanimelist.net/character/110147/Ronie_Arabel" class="fw-n">
+            <img alt="Arabel, Ronie" width="23" height="32" data-src="https://myanimelist.cdn-dena.com/r/23x32/images/characters/11/253663.webp?s=ba3c64041c7623a3a8ad94321827cec4" data-srcset="https://myanimelist.cdn-dena.com/r/23x32/images/characters/11/253663.webp?s=ba3c64041c7623a3a8ad94321827cec4 1x, https://myanimelist.cdn-dena.com/r/46x64/images/characters/11/253663.webp?s=46432f043fd59372ae081bca62d8b845 2x" class="lazyload" />
+          </a>
+        </div>
+      </td>
+      <td valign="top" class="borderClass">
+        <a href="https://myanimelist.net/character/110147/Ronie_Arabel">Arabel, Ronie</a>
+        <div class="spaceit_pad">
+          <small>Supporting</small>
+        </div>
+      </td>
+      <td align="right" valign="top" class="borderClass">
+                <table border="0" cellpadding="0" cellspacing="0"></table>
+              </td>
+    </tr>
+  </table></div></div>
+<br>
+<a name="staff"></a>
+<h2>
+  <div class="floatRightHeader"><a href="#">More staff</a></div>
+  Staff
+</h2>
+
+<div class="detail-characters-list clearfix"><div class="left-column fl-l divider" style="width:392px;"><table border="0" cellpadding="0" cellspacing="0" width="100%">
+    <tr>
+      <td valign="top" width="27" class="ac borderClass">
+        <div class="picSurround">
+          <a href="https://myanimelist.net/people/7190/Manabu_Ono" class="fw-n">
+            <img alt="Ono, Manabu" width="23" height="32" data-src="https://myanimelist.cdn-dena.com/r/23x32/images/voiceactors/2/43865.jpg?s=7fc746e6a417a1afe2139fd2235c99f1" data-srcset="https://myanimelist.cdn-dena.com/r/23x32/images/voiceactors/2/43865.jpg?s=7fc746e6a417a1afe2139fd2235c99f1 1x, https://myanimelist.cdn-dena.com/r/46x64/images/voiceactors/2/43865.jpg?s=7cdc331d7bd0eb928e83ef3d549e2d2b 2x" class="lazyload" />
+          </a>
+        </div>
+      </td>
+      <td valign="top" class="borderClass">
+        <a href="https://myanimelist.net/people/7190/Manabu_Ono">Ono, Manabu</a>
+        <div class="spaceit_pad">
+          <small>Director</small>
+        </div>
+      </td>
+    </tr>
+  </table><table border="0" cellpadding="0" cellspacing="0" width="100%">
+    <tr>
+      <td valign="top" width="27" class="ac borderClass">
+        <div class="picSurround">
+          <a href="https://myanimelist.net/people/6016/Yoshikazu_Iwanami" class="fw-n">
+            <img alt="Iwanami, Yoshikazu" width="23" height="32" data-src="https://myanimelist.cdn-dena.com/r/23x32/images/voiceactors/3/53607.jpg?s=c912e9360188362618ac7907c2016d3a" data-srcset="https://myanimelist.cdn-dena.com/r/23x32/images/voiceactors/3/53607.jpg?s=c912e9360188362618ac7907c2016d3a 1x, https://myanimelist.cdn-dena.com/r/46x64/images/voiceactors/3/53607.jpg?s=1065280bacd701fb6d7d2a5b39416ac3 2x" class="lazyload" />
+          </a>
+        </div>
+      </td>
+      <td valign="top" class="borderClass">
+        <a href="https://myanimelist.net/people/6016/Yoshikazu_Iwanami">Iwanami, Yoshikazu</a>
+        <div class="spaceit_pad">
+          <small>Sound Director</small>
+        </div>
+      </td>
+    </tr>
+  </table></div><div class="left-right fl-r" style="width:392px;"><table border="0" cellpadding="0" cellspacing="0" width="100%">
+    <tr>
+      <td valign="top" width="27" class="ac borderClass">
+        <div class="picSurround">
+          <a href="https://myanimelist.net/people/10561/LiSA" class="fw-n">
+            <img alt="LiSA" width="23" height="32" data-src="https://myanimelist.cdn-dena.com/r/23x32/images/voiceactors/2/36293.jpg?s=ff59a80e483382c62918dc98c7f8d337" data-srcset="https://myanimelist.cdn-dena.com/r/23x32/images/voiceactors/2/36293.jpg?s=ff59a80e483382c62918dc98c7f8d337 1x, https://myanimelist.cdn-dena.com/r/46x64/images/voiceactors/2/36293.jpg?s=8cde85a1c271563bda043d2f95768e01 2x" class="lazyload" />
+          </a>
+        </div>
+      </td>
+      <td valign="top" class="borderClass">
+        <a href="https://myanimelist.net/people/10561/LiSA">LiSA</a>
+        <div class="spaceit_pad">
+          <small>Theme Song Performance</small>
+        </div>
+      </td>
+    </tr>
+  </table><table border="0" cellpadding="0" cellspacing="0" width="100%">
+    <tr>
+      <td valign="top" width="27" class="ac borderClass">
+        <div class="picSurround">
+          <a href="https://myanimelist.net/people/13693/Eir_Aoi" class="fw-n">
+            <img alt="Aoi, Eir" width="23" height="32" data-src="https://myanimelist.cdn-dena.com/r/23x32/images/voiceactors/1/22105.jpg?s=e24f7e8786d26af2e7a297dbf2f2a7f6" data-srcset="https://myanimelist.cdn-dena.com/r/23x32/images/voiceactors/1/22105.jpg?s=e24f7e8786d26af2e7a297dbf2f2a7f6 1x, https://myanimelist.cdn-dena.com/r/46x64/images/voiceactors/1/22105.jpg?s=0ca61732ad4e45fa389c371e315d4c3a 2x" class="lazyload" />
+          </a>
+        </div>
+      </td>
+      <td valign="top" class="borderClass">
+        <a href="https://myanimelist.net/people/13693/Eir_Aoi">Aoi, Eir</a>
+        <div class="spaceit_pad">
+          <small>Theme Song Performance</small>
+        </div>
+      </td>
+    </tr>
+  </table></div></div>
+        
+<br><br><h2><span class="floatRightHeader"><a href="#">More reviews</a></span>Reviews</h2>
+              
+<div class="borderDark" style="padding: 4px 0;">
+  <div class="spaceit">
+    <div class="mb8" style="float: right; text-align: right;">
+      <div title="8:54 PM">Oct 14, 2018</div>
+      
+
+
+    </div><div style="float: left;">
+      <table border="0" cellpadding="0" cellspacing="0" width="100%">
+        <tr>
+            <td valign="top" width="60">
+              <div class="picSurround">
+                <a href="https://myanimelist.net/profile/Amert">
+                  <img src="https://myanimelist.cdn-dena.com/images/userimages/thumbs/6760170_thumb.webp" data-src="https://myanimelist.cdn-dena.com/images/userimages/thumbs/6760170_thumb.webp" border="0" class=" lazyloaded">
+                </a>
+              </div>
+            </td>
+              <td valign="top">
+                <a href="#">Amert</a>
+                <small>(<a href="#">All reviews</a>)</small><br>
+              </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+    <div class="spaceit textReadability word-break pt8 mt8" style="clear: both; border-top: 1px solid #ebebeb;">
+      Good Job
+    </div>
+  </div>
+</div><br>
+
+</div>
+    </td>
+    </tr>
+    </table>
+    </div>  <div class="mauto clearfix pt24" style="width:760px;">
+    <div class="fl-l">
+        
+        <div class="_unit " style="width:336px;display: block !important;" data-height="280">
+      <div id="pc_anime_detail_bottom_rec_l" class="" style="width:336px;">
+       
+      </div>
+    </div>  </div>
+      <div class="fl-r">
+        
+        <div class="_unit " style="width:336px;display: block !important;" data-height="280">
+      <div id="pc_anime_detail_bottom_rec_r" class="" style="width:336px;">
+        
+      </div>
+    </div>  </div>
+    </div>
+
+</td>
+</tr>
+</table>
+</div><!-- end of contentHome -->
+</div><!-- end of contentWrapper -->
+
+
+
+<!--  control container height -->
+<div style="clear:both;"></div>
+
+<!-- end rightbody -->
+
+</div><!-- wrapper -->
+
+    <div id="ad-skin-bg-right" class="ad-skin-side-outer ad-skin-side-bg bg-right">
+    <div id="ad-skin-right" class="ad-skin-side right" style="display: none;">
+      <div id="ad-skin-right-absolute-block">
+        <div id="ad-skin-right-fixed-block"></div>
+      </div>
+    </div>
+  </div>
+</div><!-- #myanimelist -->
+</body>
+</html>
