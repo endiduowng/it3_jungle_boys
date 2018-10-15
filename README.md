@@ -13,9 +13,12 @@ Download source code and open terminal inside it:
 ```
 $ cd it3_jungle_boys
 ```
-First, rename database.yml.example to database.yml
+First, rename database.yml.example to database.yml, secrets.yml.example to secrets.yml
 ```
 $ mv config/database.yml.example config/database.yml
+```
+```
+$ mv config/secrets.yml.example config/secrets.yml
 ```
 Then install library:
 ```
