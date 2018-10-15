@@ -1,6 +1,6 @@
 class AnimesController < ApplicationController
   before_action :set_anime, only: [:show, :edit, :update, :destroy]
-
+  before_action :user_signed_in?, only: [:new, :edit, :update, :destroy]
   # GET /animes
   # GET /animes.json
   def index
