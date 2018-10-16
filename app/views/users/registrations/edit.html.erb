@@ -1,21 +1,41 @@
 <h2>Edit <%= resource_name.to_s.humanize %></h2>
 
-<div class="container">
+<div class="container" style="width:1060px;">
 <div class="row edit-profile-wrapper">
-  <div class="col-sm-3 left-col">
-    <div class="list-group">
-      <a href="#" class="list-group-item list-group-item-action">Edit Profile</a>
-      <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "list-group-item list-group-item-action" %>
+  <div class="col-3 left-side">
+
+    <div class="row">
+      <div class="col-12">
+        <%= @current_user.email %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div clas="profile-pic col-12" style="margin: 20px 20px 20px 20px;">
+          <% if current_user.image.url.present? %>
+            <%= image_tag (current_user.image.url), class: "img-circle img-responsive", alt: "Profile pic" %>
+          <% else %>
+            <%= image_tag ("default_profile.jpg"), class: "img-circle img-responsive", alt: "Profile pic" %>
+          <% end %>
+      </div>
     </div>
   </div>
-  <div class="col-sm-9 right-col">
+
+  <div class="col-9 right-side">
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, :multipart => true }) do |f| %>
       <%= devise_error_messages! %>
 
       <div class="form-group row">
         <%= f.label :email, class: "col-sm-3 col-form-label text-right font-weight-bold" %>
         <div class="col-sm-9">
-          <%= f.email_field :email, class: "form-control col-sm-9" %>
+          <%= f.email_field :email, class: "form-control col-9" %>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <%= f.label :nickname, class: "col-sm-3 col-form-label text-right font-weight-bold" %>
+        <div class="col-sm-9">
+          <%= f.text_field :nickname, class: "form-control col-9" %>
         </div>
       </div>
 
@@ -39,20 +59,22 @@
 
       <div class="form-group row">
         <%= f.label :image, class: "col-sm-3 col-form-label text-right font-weight-bold" %>
-        <% if current_user.image.url.present? %>
-          <div class="col-sm-9" width="270" height="341">
-          <%= image_tag current_user.image.url, class: "col-sm-9" %>
-          <%= f.label :remove_image, class: "col-sm-6" do %>
-            Remove this image?
-            <%= f.check_box :remove_image %>
-          <% end %>
-          </div>
-        <% end %>
-
-        <div class="col-sm-3"></div>
+        
         <div class="col-sm-9">
-          <%= f.file_field :image, class: "col-sm-9"%>
-          <%= f.hidden_field :image_cache %>
+          <% if current_user.image.url.present? %>
+          <div class="row">
+            <div class="col-sm-2"></div>
+            <%= f.label :remove_image, class: "col-sm-10" do %>
+                  Remove current profile picture?
+                  <%= f.check_box :remove_image %>
+            <% end %>
+          </div>
+          <% end %>
+
+          <div class="row">
+            <%= f.file_field :image, class: "col-sm-9"%>
+            <%= f.hidden_field :image_cache, class: "col-sm-3"%>
+          </div>
         </div>
       </div>
 
@@ -66,7 +88,11 @@
       <div class="form-group row">
         <div class="col-sm-3"></div>
         <div class="col-sm-9">
-          <%= f.submit "Update", class: "btn btn-primary" %>
+          <div class="row">
+            <div class="col-sm-9">
+              <%= f.submit "Update", class: "btn btn-primary" %>
+            </div>
+          </div>
         </div>
       </div>
     <% end %>
