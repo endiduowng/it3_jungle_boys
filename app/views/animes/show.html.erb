@@ -1,165 +1,4 @@
-<html>
-<head>
-    <title>
-    <%= @anime.name %> - MyWibuList
-    </title>
-    <link rel="search" type="application/opensearchdescription+xml" href="https://myanimelist.net/plugins/myanimelist.xml" title="MyAnimeList" />
-    <link rel="shortcut icon" href="https://myanimelist.cdn-dena.com/images/faviconv5.ico" />
-</head>
-
-<body onload=" " class="page-common">
-<div id="myanimelist">
-        <div class="_unit " style="width:1px;display: block !important;" data-height="1">
-      <div id="skin_detail" class="" style="width:1px;">
-      </div>
-    </div>
-    <div id="ad-skin-bg-left" class="ad-skin-side-outer ad-skin-side-bg bg-left">
-    <div id="ad-skin-left" class="ad-skin-side left" style="display: none;">
-      <div id="ad-skin-left-absolute-block">
-        <div id="ad-skin-left-fixed-block"></div>
-      </div>
-    </div>
-  </div>
-  <div id="contentWrapper" itemscope itemtype="http://schema.org/Product">
-    <div>
-      <div class="header-right">
-
-      <%= link_to 'Edit Anime Infomation', edit_anime_path(@anime), class: "js-anime-edit-info-button" %>
-      </div>
-      <h1 class="h1"><span itemprop="name"><%= @anime.name %></span></h1>
-    </div>
-  <div id="content" >
-
-<table border="0" cellpadding="0" cellspacing="0" width="100%">
-<tr>
-	 <td class="borderClass" width="225" style="border-width: 0 1px 0 0;" valign="top"><div class="js-scrollfix-bottom" style="width: 225px">
-
-  <div style="text-align: center;">
-    <a href="https://myanimelist.net/anime/36474/Sword_Art_Online__Alicization/pics">
-      <%= image_tag @anime.picture, class: "ac", itemprop: "image", alt: @anime.name, width: 225, height: 318 %>
-    </a>
-  </div>
-
-<!-- My List -->
-  <% if user_signed_in? %>
-    <div class="profileRows pb0">
-      <div id="add-icon-anime-<%= @anime.id.to_s %>">
-        <%= render "add_icon", {is_added: @is_added, anime: @anime} %>
-      </div>
-      <br />
-    </div>
-  <% end %>
-<!-- end My List -->
-
-<!-- INFO -->
-
-  <h2>Alternative Titles</h2>
-  <div class="spaceit_pad">
-    <span class="dark_text">English:</span> <%= @anime.name %>
-  </div>
-  <div class="spaceit_pad">
-    <span class="dark_text">Japanese:</span> <%= @anime.name %>
-  </div><br />
-
-<h2>Information</h2>
-
-<div>
-  <span class="dark_text">Type:</span>
-  <%= @anime.kind %> </div>
-
-<div class="spaceit">
-  <span class="dark_text">Episodes:</span>
-  <%= @anime.episode %>
-  </div>
-
-<div>
-  <span class="dark_text">Status:</span>
-  Currently Airing
-  </div>
-
-<div class="spaceit">
-  <span class="dark_text">Aired:</span>
-  Oct 7, 2018 to ?
-  </div>
-
-  <div class="spaceit">
-    <span class="dark_text">Premiered:</span>
-    <%= @anime.premiered %>
-  </div>
-
-  <div class="spaceit">
-    <span class="dark_text">Producers:</span>
-    <%= @anime.producer %>
-  </div>
-
-  <div class="spaceit">
-    <span class="dark_text">Licensors:</span>
-    <%= @anime.licencer %>
-  </div>
-
-  <div>
-    <span class="dark_text">Studios:</span>
-    <%= @anime.studio %>
-  </div>
-
-<div class="spaceit">
-  <span class="dark_text">Source:</span>
-  <%= @anime.source %>
-</div>
-
-<div>
-  <span class="dark_text">Genres:</span>
-  <%= @anime.genre %>
-</div>
-
-<div class="spaceit">
-  <span class="dark_text">Duration:</span>
-  <%= @anime.duration %>
-</div>
-
-<br />
-
-<h2>Statistics</h2>
-<div itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating" class="po-r js-statistics-info di-ib" data-id="info1">
-  <span class="dark_text">Score:</span>
-  <span itemprop="ratingValue"><%= @anime.score %></span>
-      <meta itemprop="bestRating" content="10">
-    <meta itemprop="worstRating" content="1">
-      <div class="statistics-info info1">
-  </div>
-</div>
-<div class="spaceit po-r js-statistics-info di-ib" data-id="info2">
-  <span class="dark_text">Ranked:</span>
-  #295
-
-</div>
-<div>
-  <span class="dark_text">Rating:</span>
-  <%= @anime.rating %>
-</div>
-<div class="spaceit">
-  <span class="dark_text">Members:</span>
-    162,725
-</div>
-<div>
-  <span class="dark_text">Favorites:</span>
-  1,258
-</div>
-
-
-  <div class="clearfix mauto mt16" style="width:160px;padding-right:10px">
-
-        <div class="_unit " style="width:160px;display: block !important;" data-height="600">
-      <div id="pc_anime_detail_side_sky" class="" style="width:160px;">
-
-      </div>
-    </div>  </div>
-
-</div></td>
-
-
-<!-- END INFO -->
-
+<%= render partial: "shared/anime_details", object: @anime, as: "anime" %>
 
 <td valign="top" style="padding-left: 5px;"><div class="js-scrollfix-bottom-rel"><a name="lower"></a>
 <div id="horiznav_nav" style="margin: 5px 0 10px 0;">
@@ -168,7 +7,11 @@
     <li><a href="#">Videos</a></li>
     <li><a href="#">Pictures</a></li>
     <li><a href="#">Content</a></li>
-    <li><a href="#">Reviews</a></li>
+    <% if user_signed_in? %>
+      <li>
+        <%= link_to "Review", review_path(:review => @anime.id) %>
+      </li>
+    <% end %>
     <li><a href="#">Stats</a></li>
     <li><a href="#">Theme</a></li>
     <li><a href="#">Characters &amp; Staff</a></li>
@@ -375,22 +218,19 @@
   <div class="spaceit">
     <div class="mb8" style="float: right; text-align: right;">
       <div title="8:54 PM">Oct 14, 2018</div>
-
-
-
+      
     </div><div style="float: left;">
       <table border="0" cellpadding="0" cellspacing="0" width="100%">
         <tr>
             <td valign="top" width="60">
               <div class="picSurround">
-                <a href="https://myanimelist.net/profile/Amert">
+                <a href="#">
                   <img src="https://myanimelist.cdn-dena.com/images/userimages/thumbs/6760170_thumb.webp" data-src="https://myanimelist.cdn-dena.com/images/userimages/thumbs/6760170_thumb.webp" border="0" class=" lazyloaded">
                 </a>
               </div>
             </td>
               <td valign="top">
-                <a href="#">Amert</a>
-                <small>(<a href="#">All reviews</a>)</small><br>
+                Đưa hết comment của các user vào đây
               </td>
         </tr>
       </table>
@@ -398,11 +238,12 @@
   </div>
 
     <div class="spaceit textReadability word-break pt8 mt8" style="clear: both; border-top: 1px solid #ebebeb;">
-      Good Job
+      Đây là đài tiếng nói việt nam
     </div>
   </div>
-</div><br>
+</div>
 
+<br>
 </div>
     </td>
     </tr>
@@ -429,23 +270,3 @@
 </table>
 </div><!-- end of contentHome -->
 </div><!-- end of contentWrapper -->
-
-
-
-<!--  control container height -->
-<div style="clear:both;"></div>
-
-<!-- end rightbody -->
-
-</div><!-- wrapper -->
-
-    <div id="ad-skin-bg-right" class="ad-skin-side-outer ad-skin-side-bg bg-right">
-    <div id="ad-skin-right" class="ad-skin-side right" style="display: none;">
-      <div id="ad-skin-right-absolute-block">
-        <div id="ad-skin-right-fixed-block"></div>
-      </div>
-    </div>
-  </div>
-</div><!-- #myanimelist -->
-</body>
-</html>

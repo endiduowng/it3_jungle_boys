@@ -1,1 +1,1 @@
-json.partial! "animes/anime", anime: @anime
+# json.partial! "animes/anime", anime: @anime
