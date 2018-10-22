@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  resources :animes
+  resources :animes do
+    resources :adds, only: [:create, :destroy], shallow: true
+  end
   root "animes#index"
 
   devise_for :users,

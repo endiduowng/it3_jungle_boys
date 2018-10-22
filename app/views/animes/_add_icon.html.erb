@@ -1,0 +1,5 @@
+<% if is_added.present? %>
+  <%= link_to "Remove from my list", add_path(is_added), method: :delete, remote: true %>
+<% else %>
+  <%= link_to "Add to my list", anime_adds_path(anime), method: :post, remote: true %>
+<% end %>

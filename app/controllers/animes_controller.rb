@@ -10,6 +10,8 @@ class AnimesController < ApplicationController
   # GET /animes/1
   # GET /animes/1.json
   def show
+    @add = @anime.adds.includes(:user)
+    @is_added = @anime.is_added(current_user)
   end
 
   # GET /animes/new
