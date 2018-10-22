@@ -1,0 +1,21 @@
+<% saved.each do |add| %>
+  <div class="border row align-items-center">
+    <div class="no col-2"><%= current_user.adds.find_index(add) + 1 %></div>
+    <div class="anime col-2 border-left">
+      <a href="#">
+        <%= image_tag ("ghoul.jpg"),
+          class: "img-responsive", height: "80px", width: "80px" %>
+      </a>
+    </div>
+    <div class="anime-name col-6"><%= add.anime.name %></div>
+    <!-- <div class="rating col-3">
+      <span class="glyphicon glyphicon-star" style="color:#EED30B"></span>
+      <span class="glyphicon glyphicon-star" style="color:#EED30B"></span>
+      <span class="glyphicon glyphicon-star" style="color:#EED30B"></span>
+    </div>
+    <div class="ranking col-3">40</div> -->
+    <div class="remove col-2">
+      <%= link_to "Delete", add_path(add), method: :delete, remote: true %>
+    </div>
+  </div>
+<% end %>

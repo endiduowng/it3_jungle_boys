@@ -41,10 +41,14 @@
   </div>
 
 <!-- My List -->
-<div class="profileRows pb0">
-  <a href="https://myanimelist.net/login.php?from=%2Fanime%2F36474%2FSword_Art_Online__Alicization&amp;error=login_required">Add to My List</a>
-  <br />
-</div>
+  <% if user_signed_in? %>
+    <div class="profileRows pb0">
+      <div id="add-icon-anime-<%= @anime.id.to_s %>">
+        <%= render "add_icon", {is_added: @is_added, anime: @anime} %>
+      </div>
+      <br />
+    </div>
+  <% end %>
 <!-- end My List -->
 
 <!-- INFO -->
@@ -127,7 +131,7 @@
 <div class="spaceit po-r js-statistics-info di-ib" data-id="info2">
   <span class="dark_text">Ranked:</span>
   #295
-    
+
 </div>
 <div>
   <span class="dark_text">Rating:</span>
@@ -144,10 +148,10 @@
 
 
   <div class="clearfix mauto mt16" style="width:160px;padding-right:10px">
-            
+
         <div class="_unit " style="width:160px;display: block !important;" data-height="600">
       <div id="pc_anime_detail_side_sky" class="" style="width:160px;">
-      
+
       </div>
     </div>  </div>
 
@@ -192,10 +196,10 @@
   <%= @anime.description %></span>
 
     </a></td></table>
-    
+
     <br><h2><div class="floatRightHeader"><a href="#" style="font-weight: normal;">More characters</a>
     </div>Characters & Voice Actors</h2><div class="detail-characters-list clearfix"><div class="left-column fl-l divider" style="width:392px;">
-    
+
     <table border="0" cellpadding="0" cellspacing="0" width="100%">
     <tr>
       <td valign="top" width="27" class="ac borderClass">
@@ -211,7 +215,7 @@
           <small>Main</small>
         </div>
       </td>
-      
+
       <td align="right" valign="top" class="borderClass">
         <table border="0" cellpadding="0" cellspacing="0">
           <tr>
@@ -231,7 +235,7 @@
       </td>
     </tr>
     </table>
-  
+
   <table border="0" cellpadding="0" cellspacing="0" width="100%">
     <tr>
       <td valign="top" width="27" class="ac borderClass">
@@ -271,7 +275,7 @@
               </td>
     </tr>
   </table>
-  
+
   <table border="0" cellpadding="0" cellspacing="0" width="100%">
     <tr>
       <td valign="top" width="27" class="ac borderClass">
@@ -364,14 +368,14 @@
       </td>
     </tr>
   </table></div></div>
-        
+
 <br><br><h2><span class="floatRightHeader"><a href="#">More reviews</a></span>Reviews</h2>
-              
+
 <div class="borderDark" style="padding: 4px 0;">
   <div class="spaceit">
     <div class="mb8" style="float: right; text-align: right;">
       <div title="8:54 PM">Oct 14, 2018</div>
-      
+
 
 
     </div><div style="float: left;">
@@ -405,17 +409,17 @@
     </table>
     </div>  <div class="mauto clearfix pt24" style="width:760px;">
     <div class="fl-l">
-        
+
         <div class="_unit " style="width:336px;display: block !important;" data-height="280">
       <div id="pc_anime_detail_bottom_rec_l" class="" style="width:336px;">
-       
+
       </div>
     </div>  </div>
       <div class="fl-r">
-        
+
         <div class="_unit " style="width:336px;display: block !important;" data-height="280">
       <div id="pc_anime_detail_bottom_rec_r" class="" style="width:336px;">
-        
+
       </div>
     </div>  </div>
     </div>

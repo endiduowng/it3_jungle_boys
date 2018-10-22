@@ -1,7 +1,7 @@
 <div class="container" style="width:1060px; font-size:15px">
   <div class="row header border-bottom" style="background-color:#C2EEF3">
     <div class="row profile-name align-items-center">
-      <div class="user-name col-12 text-center" 
+      <div class="user-name col-12 text-center"
             style="font-size:20px; margin-left:5px">
         <%= @user.email %></div>
     </div>
@@ -46,78 +46,25 @@
 
     <div class="border right-content col-6">
       <div class="border row favorite">
-        <div class="favorite col-12" style="font-size:20px"><strong>Favorite Animes</strong></div>
+        <div class="favorite col-12" style="font-size:20px"><strong>My List Animes</strong></div>
       </div>
 
 
       <div class="border row align-items-center">
-        <div class="anime col-sm-1 text-center border">No</div>
-        <div class="anime col-sm-4 text-center">Anime</div>
-        <div class="rating col-sm-3">Rating</div>
-        <div class="ranking col-sm-3">Ranking</div>
-        <div class="remove col-sm-1"></div>
+        <div class="anime col-sm-2 text-center border">No</div>
+        <div class="anime col-sm-8 text-center">Anime</div>
+        <!-- <div class="rating col-sm-3">Rating</div>
+        <div class="ranking col-sm-3">Ranking</div> -->
+        <div class="remove col-sm-2"></div>
       </div>
       <!-- loop -->
-      <div class="border row align-items-center">
-        <div class="no col-1">1</div>
-        <div class="anime col-2 border-left">
-          <a href="#">
-            <%= image_tag ("ghoul.jpg"), 
-              class: "img-responsive", height: "80px", width: "80px" %>
-          </a>
-        </div>
-        <div class="anime-name col-2">Tokyou Ghoul</div>
-        <div class="rating col-3">
-          <span class="glyphicon glyphicon-star" style="color:#EED30B"></span>
-          <span class="glyphicon glyphicon-star" style="color:#EED30B"></span>
-          <span class="glyphicon glyphicon-star" style="color:#EED30B"></span>
-        </div>
-        <div class="ranking col-3">40</div>
-        <div class="remove col-1">
-          <a href="#"><span class="glyphicon glyphicon-trash"></span></a>
-        </div>
+      <div id="my-anime-list">
+        <%= render "my_list_items", { saved: @saved} %>
       </div>
       <!-- -->
 
-      <div class="border row align-items-center">
-        <div class="no col-1">1</div>
-        <div class="anime col-2 border-left">
-          <a href="#">
-            <%= image_tag ("ghoul.jpg"), 
-              class: "img-responsive", height: "80px", width: "80px" %>
-          </a>
-        </div>
-        <div class="anime-name col-2">Tokyou Ghoul</div>
-        <div class="rating col-3">
-          <span class="glyphicon glyphicon-star" style="color:#EED30B"></span>
-          <span class="glyphicon glyphicon-star" style="color:#EED30B"></span>
-          <span class="glyphicon glyphicon-star" style="color:#EED30B"></span>
-        </div>
-        <div class="ranking col-3">40</div>
-        <div class="remove col-1">
-          <a href="#"><span class="glyphicon glyphicon-trash"></span></a>
-        </div>
-      </div>
 
-      <div class="border row align-items-center">
-        <div class="no col-1">1</div>
-        <div class="anime col-2 border-left">
-          <a href="#">
-            <%= image_tag ("ghoul.jpg"), 
-              class: "img-responsive", height: "80px", width: "80px" %>
-          </a>
-        </div>
-        <div class="anime-name col-2">Tokyou Ghoul</div>
-        <div class="rating col-3">
-          <span class="glyphicon glyphicon-star" style="color:#EED30B"></span>
-          <span class="glyphicon glyphicon-star" style="color:#EED30B"></span>
-          <span class="glyphicon glyphicon-star" style="color:#EED30B"></span>
-        </div>
-        <div class="ranking col-3">40</div>
-        <div class="remove col-1">
-          <a href="#"><span class="glyphicon glyphicon-trash"></span></a>
-        </div>
-      </div>
+
     </div>
 
       <div class="right-column cod col-4" style="margin-left:0px">
