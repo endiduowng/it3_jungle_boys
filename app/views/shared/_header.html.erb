@@ -18,6 +18,13 @@
       <div id="menu" class="">
           <div id="menu_right">
               <div id="top-search-bar">
+
+                  <%= search_form_for @q, url: search_path, method: :post do |f| %>
+                    <%= f.label :name_cont %>
+                    <%= f.search_field :name_cont %>
+                    <%= f.submit %>
+                  <% end %>
+<!-- 
                   <form id="searchBar" method="get" class="searchBar">
                       <div class="form-select-outer fl-l">
                           <select name="type" id="topSearchValue" class="inputtext" v-model="type">
@@ -28,7 +35,7 @@
                       </div>
                       <input type="text" name="keyword" class="inputtext fl-l" placeholder="Search Anime, Manga, and more..." size="30" autocomplete="off" style="height:20px;">
                       <button type="submit">Search</button>
-                  </form>
+                  </form> -->
               </div>
           </div>
           <div id="menu_left">

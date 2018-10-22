@@ -14,4 +14,7 @@ Rails.application.routes.draw do
       confirmations: "users/confirmations"
     }
   resources :users, only: [:show]
+
+  post '/search', to: 'static_pages#result'
+  get '/search', to: 'static_pages#search'
 end

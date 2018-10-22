@@ -33,10 +33,14 @@ gem 'devise'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+
 # Use CarrierWave to upload files from Ruby applications
 gem 'carrierwave', '1.2.2'
 # mini_magick helps with the resizing of images in Rails applications
 gem 'mini_magick',' 4.7.0'
+
+# Ransack enables the creation of both simple and advanced search forms for your Ruby on Rails application
+gem 'ransack', github: 'activerecord-hackery/ransack'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
