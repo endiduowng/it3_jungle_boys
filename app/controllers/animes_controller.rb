@@ -7,6 +7,14 @@ class AnimesController < ApplicationController
     @animes = Anime.all
   end
 
+  def anime_list
+    @animes = Anime.all
+  end
+
+  def anime_rank_list
+    @animes = Anime.all
+  end
+
   # GET /animes/1
   # GET /animes/1.json
   def show

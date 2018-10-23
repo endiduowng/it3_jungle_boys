@@ -14,4 +14,6 @@ Rails.application.routes.draw do
       confirmations: "users/confirmations"
     }
   resources :users, only: [:show]
+  get '/anime_list_view_more', to: "animes#anime_list"
+  get '/anime_rank_list_view_more', to: "animes#anime_rank_list"
 end
