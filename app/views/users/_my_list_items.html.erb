@@ -15,7 +15,7 @@
     </div>
     <div class="ranking col-3">40</div> -->
     <div class="remove col-2">
-      <%= link_to "Delete", add_path(add), method: :delete, remote: true %>
+      <%= link_to "Delete", add_path(add), method: :delete, data: {confirm: "Are you sure?"} %>
     </div>
   </div>
 <% end %>
