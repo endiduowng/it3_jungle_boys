@@ -1,5 +1,130 @@
-<h1>New Anime</h1>
 
-<%= render 'form', anime: @anime %>
+<div class="container" style="width:1060px;">
+    <div class="row">
+        <div class="col-12">
+            <h1>New Anime</h1>
+        </div>
+    </div>
+    <%= form_for(@anime) do |f| %>
+    <div class="well">
+    <div class="row justify-content-center">
+        <div class="col-4">
+            <div class="form-group row">
+                <%= f.label :name, class: "col-3 col-form-label text-right font-weight-bold"%>
+                <%= f.text_field :name, class: "form-control col-9"%>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="form-group row">
+                <%= f.label :kind, class: "col-3 col-form-label text-right font-weight-bold"%>
+                <%= f.text_field :kind, class: "form-control col-9"%>
+            </div>
+        </div>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-4">
+            <div class="form-group row">
+                <%= f.label :producer, class: "col-3 col-form-label text-right font-weight-bold"%>
+                <%= f.text_field :producer, class: "form-control col-9"%>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="form-group row">
+                <%= f.label :licencer, class: "col-3 col-form-label text-right font-weight-bold"%>
+                <%= f.text_field :licencer, class: "form-control col-9"%>
+            </div>
+        </div>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-4">
+            <div class="form-group row">
+                <%= f.label :episode, class: "col-3 col-form-label text-right font-weight-bold"%>
+                <%= f.text_field :episode, class: "form-control col-9"%>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="form-group row">
+                <%= f.label :premiered, class: "col-3 col-form-label text-right font-weight-bold"%>
+                <%= f.date_field :premiered, class: "form-control col-9"%>
+            </div>
+        </div>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-4">
+            <div class="form-group row">
+                <%= f.label :studio, class: "col-3 col-form-label text-right font-weight-bold"%>
+                <%= f.text_field :studio, class: "form-control col-9"%>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="form-group row">
+                <%= f.label :source, class: "col-3 col-form-label text-right font-weight-bold"%>
+                <%= f.text_field :source, class: "form-control col-9"%>
+            </div>
+        </div>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-4">
+            <div class="form-group row">
+                <%= f.label :genre, class: "col-3 col-form-label text-right font-weight-bold"%>
+                <%= f.text_field :genre, class: "form-control col-9"%>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="form-group row">
+                <%= f.label :duration, class: "col-3 col-form-label text-right font-weight-bold"%>
+                <%= f.text_field :duration, class: "form-control col-9"%>
+            </div>
+        </div>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-4">
+            <div class="form-group row">
+                <%= f.label :picture, class: "col-3 col-form-label text-right font-weight-bold"%>
+                <%= f.text_field :picture, class: "form-control col-9"%>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="form-group row">
+                <%= f.label :rating, class: "col-3 col-form-label text-right font-weight-bold"%>
+                <%= f.text_field :rating, class: "form-control col-9"%>
+            </div>
+        </div>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-4">
+            <div class="form-group row">
+                <%= f.label :score, class: "col-3 col-form-label text-right font-weight-bold"%>
+                <%= f.text_field :score, class: "form-control col-9"%>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="form-group row">
+                <%= f.label :description, class: "col-3 col-form-label text-right font-weight-bold"%>
+                <%= f.text_area :description, class: "form-control col-9"%>
+            </div>
+        </div>
+    </div>  
+
+    <div class="row">
+        <div class="col-12">
+            <%= f.submit "Create", class: "btn btn-primary" %>
+        </div>
+    </div>
+    </div>
+    <% end %>
+</div>
+
+
+
+
+
+
 
 <%= link_to 'Back', animes_path %>

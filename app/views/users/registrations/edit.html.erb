@@ -1,4 +1,4 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+
 
 <div class="container" style="width:1060px;">
 <div class="row edit-profile-wrapper">
@@ -22,7 +22,8 @@
   </div>
 
   <div class="col-9 right-side">
-    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, :multipart => true }) do |f| %>
+    <%= form_for(resource, as: resource_name, 
+      url: registration_path(resource_name), html: { method: :put, :multipart => true }) do |f| %>
       <%= devise_error_messages! %>
 
       <div class="form-group row">
