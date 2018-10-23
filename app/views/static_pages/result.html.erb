@@ -1,0 +1,21 @@
+<div id="myanimelist">
+	<hgroup class="mb20">
+		<h1>Search Results</h1>
+		<h2 class="lead"><strong class="text-danger"><%= @search_animes.count %></strong> results were found for the search for <strong class="text-danger"><%= @q.name_cont %></strong></h2>								
+	</hgroup>
+	<div>
+		<% @search_animes.each do |anime| %>
+			<article class="search-result row">
+				<div class="col-md-3 col-lg-3">
+					<%= link_to anime, class: "thumbnail" do %>
+						<%= image_tag anime.picture %>
+					<% end %>
+				</div>
+				<div class="col-md-7 col-lg-7">
+					<h3><%= link_to anime.name, anime %></h3>
+					<p><%= anime.description %> </p>						
+				</div>
+			</article>
+		<% end %>
+	</div>
+</div>
