@@ -19,7 +19,7 @@
           <div id="menu_right">
               <div id="top-search-bar">
                   <%= search_form_for @q, html: {class: "searchBar", id: "searchBar"}, url: search_path, method: :post do |f| %>
-                    <%= f.label :name_cont, hidden: true %>
+                    <%= f.label :name_cont, hidden: true, style: "display: none" %>
                     <%= f.search_field :name_cont, class: "inputtext fl-l", placeholder: "Search anime" %>
                     <%= f.submit %>
                   <% end %>
