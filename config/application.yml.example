@@ -1,6 +1,0 @@
-DATABASE_NAME: "itnihongo3_development"
-DATABASE_NAME_TEST: "itnihongo3_development_test"
-DATABASE_USER: "root"
-DATABASE_PASSWORD: "root"
-MAIL_USERNAME: ""
-MAIL_PASSWORD: ""
