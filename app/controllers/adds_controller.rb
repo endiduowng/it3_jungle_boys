@@ -13,10 +13,11 @@ class AddsController < ApplicationController
   def destroy
     @add = Add.find(params[:id])
     @anime = @add.anime
-    if @add.destroy
-      respond_to :js
-    else
-      flash[:alert] = "Something went wrong..."
+    respond_to do |format|
+      if @add.destroy
+        format.html {redirect_to user_path(current_user)}
+        format.js
+      end
     end
   end
 
