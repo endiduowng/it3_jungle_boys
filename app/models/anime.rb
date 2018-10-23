@@ -6,4 +6,5 @@ class Anime < ApplicationRecord
       Add.find_by(user_id: user.id, anime_id: id)
     end
   end
+  has_many :reviews, dependent: :destroy
 end

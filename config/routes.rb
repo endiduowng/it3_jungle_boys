@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   resources :animes do
     resources :adds, only: [:create, :destroy], shallow: true
   end
+  post '/rate' => 'rater#create', :as => 'rate'
+  get "/review", to: "reviews#review"
   root "animes#index"
 
   devise_for :users,
@@ -17,4 +19,5 @@ Rails.application.routes.draw do
 
   post '/search', to: 'static_pages#result'
   get '/search', to: 'static_pages#search'
+  resources :reviews
 end
