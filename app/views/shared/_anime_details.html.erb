@@ -37,16 +37,18 @@
 
   <div style="text-align: center;">
     <a href="https://myanimelist.net/anime/36474/Sword_Art_Online__Alicization/pics">
-      <%= image_tag @anime.picture, class: "ac", itemprop: "image", alt: @anime.name, width: 225, height: 318 %>
+      <%= image_tag anime.picture, class: "ac", itemprop: "image", alt: anime.name, width: 225, height: 318 %>
     </a>
   </div>
 
-<!-- My List -->
-<div class="profileRows pb0">
-  <a href="https://myanimelist.net/login.php?from=%2Fanime%2F36474%2FSword_Art_Online__Alicization&amp;error=login_required">Add to My List</a>
-  <br />
-</div>
-<!-- end My List -->
+  <% if user_signed_in? %>
+    <div class="profileRows pb0">
+      <div id="add-icon-anime-<%= anime.id.to_s %>">
+        <%= render "animes/add_icon", {is_added: @is_added, anime: @anime} %>
+      </div>
+      <br />
+    </div>
+  <% end %>
 
 <!-- INFO -->
 
@@ -128,7 +130,7 @@
 <div class="spaceit po-r js-statistics-info di-ib" data-id="info2">
   <span class="dark_text">Ranked:</span>
   #295
-    
+
 </div>
 <div>
   <span class="dark_text">Rating:</span>
@@ -145,10 +147,10 @@
 
 
   <div class="clearfix mauto mt16" style="width:160px;padding-right:10px">
-            
+
         <div class="_unit " style="width:160px;display: block !important;" data-height="600">
       <div id="pc_anime_detail_side_sky" class="" style="width:160px;">
-      
+
       </div>
     </div>  </div>
 

@@ -11,7 +11,7 @@
               <div class="widget seasonal left">
                 <h3 class="widget-header">
                   <span style="float: right;">
-                    <a href="/anime/season" style="font-weight: normal; font-size: 11px;">View More</a>
+                    <%= link_to "View More", anime_list_view_more_path, style: "font-weight: normal; font-size: 11px;" %>
                   </span>
                   Fall 2018 Anime
                 </h3>
@@ -31,7 +31,7 @@
               <div class="widget seasonal left">
                 <h3 class="widget-header">
                   <span style="float: right;">
-                    <a href="#" style="font-weight: normal; font-size: 11px;">View More</a>
+                    <%= link_to "View More", anime_list_view_more_path, style: "font-weight: normal; font-size: 11px;" %>
                   </span>
                   Most Popular Videos
                 </h3>
@@ -210,7 +210,7 @@
               <div class="widget airing_ranking right">
 
                 <div class="ranking-digest">
-                  <h2 class="ranking-header"><a class="btn-view_more" href="#">More</a>Top Airing Anime</h2>
+                  <h2 class="ranking-header"><%= link_to "More", anime_rank_list_view_more_path, class: "btn-view_more" %>Top Airing Anime</h2>
                   <ul>
                     <li class="ranking-unit">
                       <span class="rank">1</span>
@@ -308,7 +308,7 @@
               <div class="widget upcoming_ranking right">
 
                 <div class="ranking-digest">
-                  <h2 class="ranking-header"><a class="btn-view_more" href="#">More</a>Top Upcoming Anime</h2>
+                  <h2 class="ranking-header"><%= link_to "More", anime_rank_list_view_more_path, class: "btn-view_more" %>Top Upcoming Anime</h2>
                   <ul>
                     <li class="ranking-unit">
                       <span class="rank">1</span>

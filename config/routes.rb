@@ -20,4 +20,7 @@ Rails.application.routes.draw do
   post '/search', to: 'static_pages#result'
   get '/search', to: 'static_pages#search'
   resources :reviews
+
+  get "/anime_list_view_more", to: "animes#anime_list"
+  get "/anime_rank_list_view_more", to: "animes#anime_rank_list"
 end

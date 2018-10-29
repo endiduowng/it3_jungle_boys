@@ -3,7 +3,7 @@
     <div class="no col-2"><%= current_user.adds.find_index(add) + 1 %></div>
     <div class="anime col-2 border-left">
       <a href="#">
-        <%= image_tag ("ghoul.jpg"),
+        <%= image_tag add.anime.picture,
           class: "img-responsive", height: "80px", width: "80px" %>
       </a>
     </div>
