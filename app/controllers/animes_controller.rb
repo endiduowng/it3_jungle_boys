@@ -63,6 +63,16 @@ class AnimesController < ApplicationController
     end
   end
 
+  def anime_list
+    # Query DB in here
+    @animes = Anime.all
+  end
+
+  def anime_rank_list
+    # Query DB in here
+    @animes = Anime.all
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_anime
