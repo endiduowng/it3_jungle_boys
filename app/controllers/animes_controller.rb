@@ -12,6 +12,7 @@ class AnimesController < ApplicationController
   def show
     @add = @anime.adds.includes(:user)
     @is_added = @anime.is_added(current_user)
+    @review = Review.new
   end
 
   # GET /animes/new

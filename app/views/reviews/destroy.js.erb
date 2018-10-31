@@ -1,0 +1,3 @@
+$('#review-anime-<%= @anime.id.to_s %>').
+  html('<%= j render "animes/review_comment_list", {anime: @anime} %>');
+console.log("delete comment success");
