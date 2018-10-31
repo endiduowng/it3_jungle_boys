@@ -8,9 +8,7 @@
     <li><a href="#">Pictures</a></li>
     <li><a href="#">Content</a></li>
     <% if user_signed_in? %>
-      <li>
-        <%= link_to "Review", review_path(:review => @anime.id) %>
-      </li>
+      <li><a href="#">Review</a></li>
     <% end %>
     <li><a href="#">Stats</a></li>
     <li><a href="#">Theme</a></li>
@@ -215,30 +213,35 @@
 <br><br><h2><span class="floatRightHeader"><a href="#">More reviews</a></span>Reviews</h2>
 
 <div class="borderDark" style="padding: 4px 0;">
-  <div class="spaceit">
-    <div class="mb8" style="float: right; text-align: right;">
-      <div title="8:54 PM">Oct 14, 2018</div>
-
-    </div><div style="float: left;">
-      <table border="0" cellpadding="0" cellspacing="0" width="100%">
-        <tr>
+  <% if user_signed_in? %>
+    <div class="spaceit">
+      <div class="mb8" style="float: right; text-align: right;"></div>
+      <div style="float: left;">
+        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+          <tr>
             <td valign="top" width="60">
-              <div class="picSurround">
-                <a href="#">
-                  <img src="https://myanimelist.cdn-dena.com/images/userimages/thumbs/6760170_thumb.webp" data-src="https://myanimelist.cdn-dena.com/images/userimages/thumbs/6760170_thumb.webp" border="0" class=" lazyloaded">
-                </a>
+              <div class="picSurround col-4">
+                <% if current_user.image.url.present? %>
+                  <%= image_tag (current_user.image.url), class: "lazyloaded img-circle img-responsive", width: "30", height: "30", alt: "Profile pic" %>
+                <% else %>
+                  <%= image_tag ("default_profile.jpg"), class: "lazyloaded img-circle img-responsive", width: "30", height: "30", alt: "Profile pic" %>
+                <% end %>
               </div>
             </td>
-              <td valign="top">
-                Đưa hết comment của các user vào đây
-              </td>
-        </tr>
-      </table>
+            <td valign="top">
+              <div class="row actions" id="review-comment-form-anime-<%= @anime.id.to_s %>">
+                <%= render "review_comment_form", {anime: @anime} %>
+              </div>
+            </td>
+          </tr>
+        </table>
+      </div>
     </div>
-  </div>
+  <% end %>
 
-    <div class="spaceit textReadability word-break pt8 mt8" style="clear: both; border-top: 1px solid #ebebeb;">
-      Đây là đài tiếng nói việt nam
+  <div class="spaceit textReadability word-break pt8 mt8" style="clear: both; border-top: 1px solid #ebebeb;">
+    <div id="review-anime-<%= @anime.id.to_s %>">
+      <%= render "review_comment_list", {anime: @anime} %>
     </div>
   </div>
 </div>

@@ -1,0 +1,5 @@
+<%= form_for [anime, Review.new], :html => {:class => "w-100"}, remote: true do |f| %>
+  <%= f.hidden_field :user_id, value: current_user.id %>
+  <%= f.hidden_field :anime_id, value: anime.id %>
+  <%= f.text_field :review_description, class: "form-control comment-input border-0", placeholder: "Add a comment...", autocomplete: :off %>
+<% end %>

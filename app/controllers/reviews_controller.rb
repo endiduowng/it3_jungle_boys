@@ -1,14 +1,29 @@
 class ReviewsController < ApplicationController
-  before_action :find_anime, only: [:review, :create]
+  before_action :authenticate_user!
+  before_action :find_anime, only: [:review]
+
+  def index
+    @review = @anime.reviews.include(:user)
+  end
 
   def create
-    byebug
-    @review = current_user.reviews.new review_params
-    byebug
+    @review = Review.new(review_params)
     if @review.save
-      create_real_time
+      @anime = @review.anime
+      respond_to :js
     else
-      flash[:danger] = "Something is wrong"
+      flash[:danger] = "Something went wrong..."
+      redirect_to root_path
+    end
+  end
+
+  def destroy
+    @review = Review.find(params[:id])
+    @anime = @review.anime
+    if @review.destroy
+      respond_to :js
+    else
+      flash[:danger] = "Something went wrong..."
       redirect_to root_path
     end
   end
@@ -21,9 +36,9 @@ class ReviewsController < ApplicationController
     end
 
     def review_params
-      params.require(:review).permit :review_description, :anime_id, :user_id
+      params.require(:review).permit(:review_description, :anime_id, :user_id)
     end
-  
+
     def create_real_time
       # ActionCable.server.broadcast "comments",
       #   comment_id: @comment.id,
@@ -32,4 +47,4 @@ class ReviewsController < ApplicationController
       #   time: Time.now.to_i - @comment.created_at.to_i
       # head :ok
     end
-end 
+end
