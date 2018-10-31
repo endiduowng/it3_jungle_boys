@@ -1,0 +1,9 @@
+<% anime.reviews.each do |review| %>
+  <div class="mb-2">
+    <span style="font-size: 14px"><strong><%= review.user.nickname %></strong></span>
+    <span style="font-size: 11px"><%= review.review_description %></span>
+    <% if review.user == current_user %>
+      <%= link_to "Delete", review_path(review), style: "float: right;", method: :delete, remote: true %>
+    <% end %>
+  </div>
+<% end %>

@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   resources :animes do
     resources :adds, only: [:create, :destroy], shallow: true
+    resources :reviews, only: [:index, :create, :destroy], shallow: true
   end
   post '/rate' => 'rater#create', :as => 'rate'
   get "/review", to: "reviews#review"
@@ -19,7 +20,6 @@ Rails.application.routes.draw do
 
   post '/search', to: 'static_pages#result'
   get '/search', to: 'static_pages#search'
-  resources :reviews
 
   get "/anime_list_view_more", to: "animes#anime_list"
   get "/anime_rank_list_view_more", to: "animes#anime_rank_list"
