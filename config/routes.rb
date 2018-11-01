@@ -4,7 +4,6 @@ Rails.application.routes.draw do
     resources :reviews, only: [:index, :create, :destroy], shallow: true
   end
   post '/rate' => 'rater#create', :as => 'rate'
-  # get "/review", to: "reviews#review"
   root "animes#index"
 
   devise_for :users,
