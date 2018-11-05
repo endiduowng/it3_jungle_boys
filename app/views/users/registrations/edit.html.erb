@@ -13,9 +13,9 @@
     <div class="row">
       <div clas="profile-pic col-12" style="margin: 20px 20px 20px 20px;">
           <% if current_user.image.url.present? %>
-            <%= image_tag (current_user.image.url), class: "img-circle img-responsive", alt: "Profile pic" %>
+            <%= image_tag (current_user.image.url), class: "img-circle img-responsive", alt: "Profile pic", id: "user_image" %>
           <% else %>
-            <%= image_tag ("default_profile.jpg"), class: "img-circle img-responsive", alt: "Profile pic" %>
+            <%= image_tag ("default_profile.jpg"), class: "img-circle img-responsive", alt: "Profile pic", id: "user_image" %>
           <% end %>
       </div>
     </div>
@@ -73,7 +73,7 @@
           <% end %>
 
           <div class="row">
-            <%= f.file_field :image, class: "col-sm-9"%>
+            <%= f.file_field :image, class: "col-sm-9", onchange: "readURL(this);"%>
             <%= f.hidden_field :image_cache, class: "col-sm-3"%>
           </div>
         </div>
@@ -100,3 +100,15 @@
   </div>
 </div>
 </div>
+<script>
+function readURL(input) {
+  if (input.files && input.files[0]) {
+    var reader = new FileReader();
+    reader.onload = function (e) {
+      $('#user_image')
+        .attr('src', e.target.result);
+    };
+    reader.readAsDataURL(input.files[0]);
+  }
+}
+</script>
