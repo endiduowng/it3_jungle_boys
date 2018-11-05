@@ -4,7 +4,6 @@ Rails.application.routes.draw do
     resources :reviews, only: [:index, :create, :destroy], shallow: true
   end
   post '/rate' => 'rater#create', :as => 'rate'
-  get "/review", to: "reviews#review"
   root "animes#index"
 
   devise_for :users,
@@ -17,6 +16,7 @@ Rails.application.routes.draw do
       confirmations: "users/confirmations"
     }
   resources :users, only: [:show]
+  resources :reviews
 
   post '/search', to: 'static_pages#result'
   get '/search', to: 'static_pages#search'

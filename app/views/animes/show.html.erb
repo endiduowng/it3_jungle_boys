@@ -7,9 +7,6 @@
     <li><a href="#">Videos</a></li>
     <li><a href="#">Pictures</a></li>
     <li><a href="#">Content</a></li>
-    <% if user_signed_in? %>
-      <li><a href="#">Review</a></li>
-    <% end %>
     <li><a href="#">Stats</a></li>
     <li><a href="#">Theme</a></li>
     <li><a href="#">Characters &amp; Staff</a></li>
@@ -22,18 +19,18 @@
     <div class="di-t w100 mt12">
       <div class="anime-detail-header-stats di-tc va-t ">
         <div class="stats-block po-r clearfix">
-          <div class="fl-l score" data-title="score" title="indicates a weighted score. Please note that 'Not yet aired' titles are excluded.">
-            <%= @anime.score %>
+          <div class="fl-l score" data-title="score" title="indicates a weighted score. Please note that "Not yet aired" titles are excluded.">
+            <%= @anime.score || 0 %>
           </div>
           <div class="di-ib ml12 pl20 pt8">
-            <span class="numbers ranked" title="based on the top anime page. Please note that 'Not yet aired' and 'R18+' titles are excluded.">Ranked <strong>#295</strong></span>
+            <span class="numbers ranked" title="based on the top anime page. Please note that "Not yet aired" and "R18+" titles are excluded.">Ranked <strong>#295</strong></span>
             <span class="numbers members">Members <strong>162,725</strong></span>
         </div>
       </div>
     </div>
   <div class="js-myinfo-error badresult-text al pb4" style="display:none;"></div>
 </div>
-<h2><div class="floatRightHeader"><%= link_to 'Edit', edit_anime_path(@anime) %></div>Description</h2><span itemprop="description">
+<h2><div class="floatRightHeader"><%= link_to "Edit", edit_anime_path(@anime) %></div>Description</h2><span itemprop="description">
   <%= @anime.description %></span>
 
     </a></td></table>
@@ -212,13 +209,14 @@
 
 <br><br><h2><span class="floatRightHeader"><a href="#">More reviews</a></span>Reviews</h2>
 
-<div class="borderDark" style="padding: 4px 0;">
+<div style="padding: 4px 0;">
   <% if user_signed_in? %>
-    <div class="spaceit">
+    <div class="">
       <div class="mb8" style="float: right; text-align: right;"></div>
       <div style="float: left;">
         <table border="0" cellpadding="0" cellspacing="0" width="100%">
           <tr>
+            <% if !Review.find_by(user_id: current_user.id, anime_id: @anime.id) %>
             <td valign="top" width="60">
               <div class="picSurround col-4">
                 <% if current_user.image.url.present? %>
@@ -228,25 +226,26 @@
                 <% end %>
               </div>
             </td>
-            <td valign="top">
-              <div class="row actions" id="review-comment-form-anime-<%= @anime.id.to_s %>">
-                <%= render "review_comment_form", {anime: @anime} %>
-              </div>
-            </td>
+              <td valign="top">
+                <div class="row actions" id="review-comment-form-anime-<%= @anime.id.to_s %>">
+                  <%= render "review_comment_form", {anime: @anime} %>
+                <br><br><br>
+                </div>
+              </td>
+            <% end %>
           </tr>
         </table>
       </div>
     </div>
   <% end %>
 
-  <div class="spaceit textReadability word-break pt8 mt8" style="clear: both; border-top: 1px solid #ebebeb;">
-    <div id="review-anime-<%= @anime.id.to_s %>">
-      <%= render "review_comment_list", {anime: @anime} %>
-    </div>
+  <div id="review-anime-<%= @anime.id.to_s %>">
+    <%= render "review_comment_list", {anime: @anime} %>
   </div>
+
+<br><br><br>
 </div>
 
-<br>
 </div>
     </td>
     </tr>

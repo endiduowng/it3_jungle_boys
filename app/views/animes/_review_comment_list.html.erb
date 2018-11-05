@@ -1,9 +1,28 @@
 <% anime.reviews.each do |review| %>
-  <div class="mb-2">
-    <span style="font-size: 14px"><strong><%= review.user.nickname %></strong></span>
-    <span style="font-size: 11px"><%= review.review_description %></span>
-    <% if review.user == current_user %>
-      <%= link_to "Delete", review_path(review), style: "float: right;", method: :delete, remote: true %>
-    <% end %>
+  <div class="borderDark">
+    <div class="mb-2">
+      <div class="spaceit">
+        <span style="font-size: 10px"><strong><%= review.user.nickname || review.user.email %></strong></span>
+        <div class="review-rating" data-score="<%= review.review_score %>"></div>
+      </div>
+      <div class="spaceit textReadability word-break pt8 mt8" style="clear: both; border-top: 1px solid #ebebeb;">
+        <span style="font-size: 12px"><%= review.review_description %></span>
+        <% if review.user == current_user %>
+          <%= link_to "Delete", review_path(review), style: "float: right;", method: :delete, remote: true %>
+        <% end %>
+      </div>
+    </div>
+    <br>
   </div>
 <% end %>
+
+
+<script>
+	$('.review-rating').raty({
+		readOnly: true,
+		score: function() {
+			return $(this).attr('data-score');
+		},
+		path: '/assets/'
+	});
+</script>

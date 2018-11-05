@@ -121,7 +121,7 @@
 <h2>Statistics</h2>
 <div itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating" class="po-r js-statistics-info di-ib" data-id="info1">
   <span class="dark_text">Score:</span>
-  <span itemprop="ratingValue"><%= anime.score %></span>
+  <span itemprop="ratingValue"><%= anime.score || 0 %></span>
       <meta itemprop="bestRating" content="10">
     <meta itemprop="worstRating" content="1">
       <div class="statistics-info info1">
