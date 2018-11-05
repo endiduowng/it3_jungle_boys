@@ -5,6 +5,7 @@ class AnimesController < ApplicationController
   # GET /animes.json
   def index
     @animes = Anime.all
+    @reivews = Review.all.order(:created_at => :desc)
   end
 
   # GET /animes/1

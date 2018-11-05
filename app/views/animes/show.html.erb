@@ -213,19 +213,19 @@
   <% if user_signed_in? %>
     <div class="">
       <div class="mb8" style="float: right; text-align: right;"></div>
-      <div style="float: left;">
+      <div>
         <table border="0" cellpadding="0" cellspacing="0" width="100%">
           <tr>
             <% if !Review.find_by(user_id: current_user.id, anime_id: @anime.id) %>
-            <td valign="top" width="60">
-              <div class="picSurround col-4">
-                <% if current_user.image.url.present? %>
-                  <%= image_tag (current_user.image.url), class: "lazyloaded img-circle img-responsive", width: "30", height: "30", alt: "Profile pic" %>
-                <% else %>
-                  <%= image_tag ("default_profile.jpg"), class: "lazyloaded img-circle img-responsive", width: "30", height: "30", alt: "Profile pic" %>
-                <% end %>
-              </div>
-            </td>
+              <td valign="top" width="60">
+                <div class="picSurround col-4">
+                  <% if current_user.image.url.present? %>
+                    <%= image_tag (current_user.image.url), class: "lazyloaded img-circle img-responsive", width: "30", height: "30", alt: "Profile pic" %>
+                  <% else %>
+                    <%= image_tag ("default_profile.jpg"), class: "lazyloaded img-circle img-responsive", width: "30", height: "30", alt: "Profile pic" %>
+                  <% end %>
+                </div>
+              </td>
               <td valign="top">
                 <div class="row actions" id="review-comment-form-anime-<%= @anime.id.to_s %>">
                   <%= render "review_comment_form", {anime: @anime} %>
