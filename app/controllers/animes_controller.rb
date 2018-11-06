@@ -6,6 +6,8 @@ class AnimesController < ApplicationController
   def index
     @animes = Anime.all
     @reivews = Review.all.order(:created_at => :desc)
+    @top_airing_animes = Anime.select_top_airing
+    @top_upcoming_animes = Anime.select_top_upcoming
   end
 
   # GET /animes/1
@@ -70,9 +72,14 @@ class AnimesController < ApplicationController
     @animes = Anime.all
   end
 
-  def anime_rank_list
+  def anime_airing_rank_list
     # Query DB in here
-    @animes = Anime.all
+    @animes = Anime.select_top_airing
+  end
+
+  def anime_upcoming_rank_list
+    # Query DB in here
+    @animes = Anime.select_top_upcoming
   end
 
   private
