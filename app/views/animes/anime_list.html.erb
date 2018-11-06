@@ -12,61 +12,54 @@
 		<div class="wrapper ">
 			<div id="contentWrapper">
 				<div>
-					<h1 class="h1">Title list anime</h1>
+					<h1 class="h1">Seasonal Anime</h1>
 				</div>
 				<div id="content" class="pl0 pr0">
 					<div class="js-categories-seasonal" style="padding-top: 0px;">
 						<div class="seasonal-anime-list js-seasonal-anime-list js-seasonal-anime-list-key-1 clearfix">
 
-							<!-- begin anime card -->
-							<!-- foreach anime to show more -->
+							<% @animes.each do |anime| %>
 							<div class="seasonal-anime js-seasonal-anime" data-genre="1,2,10,11,22">
 								<div>
 									<div class="title">
 										<p class="title-text">
-											<a href="/" class="link-title">Anime Title</a>
+											<%= link_to anime.name, anime_path(anime) %>
 										</p>
 									</div>
 
 									<div class="prodsrc">
-										<span class="producer">Producer</span>
+										<span class="producer"><%= anime.producer %></span>
 										<div class="eps">
-											<span>? eps</span>
+											<span><%= anime.episode %></span>
 										</div>
 
-										<span class="source">Anime source</span>
+										<span class="source"><%= anime.source %></span>
 
 										<a href="" title="Quick add anime to my list" class="Lightbox_AddEdit button_add btn-anime-watch-status js-anime-watch-status notinmylist">add</a>
 									</div>
 
 									<div class="genres js-genre" id="36474">
 										<div class="genres-inner js-genre-inner">
-											<!-- foreach anime.genres -->
-											<span class="genre">Action</span>
-											<span class="genre">Adventure</span>
-											<span class="genre">Fantasy</span>
-											<span class="genre">Game</span>
-											<span class="genre">Romance</span>
-											<!-- end foreach -->
+											<% anime.genre.split(/,/).each do |genre| %>
+												<span class="genre"><%= genre %></span>
+											<% end %>
 										</div>
 									</div>
 								</div>
 
 								<!-- anime poster -->
-								<div class="image"><img src="/anime-image" width="167" height="242" alt="Anime Title">
+								<div class="image"><%= image_tag(anime.picture, size: "167x242", alt: anime.name) %>
 								</div>
 
 								<div class="synopsis js-synopsis" style="width: 155px;">
-									<span class="preline">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
-										has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of
-										type and scrambled it to make a type specimen book.</span>
-									<p class="licensors on" data-licensors="Aniplex of America,"><span class="fw-b">Licensor:</span><br>Anime's licensor</p>
+									<span class="preline"><%= anime.description %></span>
+									<p class="licensors on" data-licensors="Aniplex of America,"><span class="fw-b">Licensor:</span><br><%= anime.licencer %></p>
 								</div>
 
 								<div class="information">
 									<div class="info">
 										TV -
-										<span class="remain-time"> Oct 7, 2018, 00:00 (JST) </span>
+										<span class="remain-time"> <%= anime.premiered %> </span>
 									</div>
 									<div class="scormem">
 										<span class="member fl-r" title="Members">166,262</span>
@@ -74,8 +67,7 @@
 									</div>
 								</div>
 							</div>
-							<!-- end anime card -->
-							<!-- end foreach -->
+							<% end %>
 
 						</div>
 					</div>

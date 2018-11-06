@@ -68,8 +68,7 @@ class AnimesController < ApplicationController
   end
 
   def anime_list
-    # Query DB in here
-    @animes = Anime.all
+    @animes = Anime.all.select{|anime| anime.premiered.to_seasons == "Fall 2017"}
   end
 
   def anime_airing_rank_list

@@ -13,13 +13,13 @@
                   <span style="float: right;">
                     <%= link_to "View More", anime_list_view_more_path, style: "font-weight: normal; font-size: 11px;" %>
                   </span>
-                  Fall 2018 Anime
+                  <%= Date.today.to_seasons %> Anime
                 </h3>
                 <div class="widget-content">
                   <div class="widget-slide-block " id="widget-seasonal-video">
                     <div class="widget-slide-outer">
                       <ul class="widget-slide js-widget-slide" data-slide="4" style="width: 3984px; margin-left: 0px;">
-                        <%= render "fall_2018_anime" %>
+                        <%= render "current_season_animes" %>
                       </ul>
                     </div>
                   </div>
@@ -39,7 +39,7 @@
                   <div class="widget-slide-block " id="widget-seasonal-video">
                     <div class="widget-slide-outer">
                       <ul class="widget-slide js-widget-slide" data-slide="4" style="width: 3984px; margin-left: 0px;">
-                        <%= render "latest_updated_episode_videos" %>
+                        <%= render "most_popular_videos" %>
                       </ul>
                     </div>
                   </div>
