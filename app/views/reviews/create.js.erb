@@ -1,0 +1,4 @@
+$('#review-anime-<%= @anime.id.to_s %>').
+  html('<%= j render "animes/review_comment_list", {anime: @anime} %>');
+$('#review-comment-form-anime-<%= @anime.id.to_s %> .comment-input').val("");
+console.log("create comment success");

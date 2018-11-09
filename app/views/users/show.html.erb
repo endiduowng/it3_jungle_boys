@@ -1,0 +1,114 @@
+<% content_for :style do %>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+    crossorigin="anonymous">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<% end %>
+
+<div class="container" style="width:1060px; font-size:15px">
+  <div class="row header border-bottom" style="background-color:#C2EEF3">
+    <div class="row profile-name align-items-center">
+      <div class="user-name col-12 text-center"
+            style="font-size:20px; margin-left:5px">
+        <% if @user.nickname %>
+          <%= @user.nickname %>
+        <% else %>
+          <%= @user.email %></div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="border row content">
+    <div class="right-content col-2">
+
+      <div class="row profile-pic" style="margin: 5px 5px 5px 5px;">
+        <div clas="profile-pic col-12">
+          <% if current_user.image.url.present? %>
+            <%= image_tag (current_user.image.url), class: "img-circle img-responsive", alt: "Profile pic" %>
+          <% else %>
+            <%= image_tag ("default_profile.jpg"), class: "img-circle img-responsive", alt: "Profile pic" %>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="border row user-func" style="font-size:15px">
+        <div class="edit-pro col-12">
+          <%= link_to "Edit", edit_user_registration_path, class: "glyphicon glyphicon-edit" %>
+        </div>
+      </div>
+      <br>
+      <div class="border row info" style="font-size:12px">
+        <div class="review-num col-12">
+          <div class="row border">
+            <div class="col-5">Anime reviews</div>
+            <div class="col-7">100</div>
+          </div>
+        </div>
+        <div class="joined-date col-12">
+          <div class="row border">
+            <div class="col-5">Joined date</div>
+            <div class="col-7"><%= @user.created_at.to_date %></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="border right-content col-6">
+      <div class="border row favorite">
+        <div class="favorite col-12" style="font-size:20px"><strong>My List Animes</strong></div>
+      </div>
+
+
+      <div class="border row align-items-center">
+        <div class="anime col-sm-2 text-center border">No</div>
+        <div class="anime col-sm-8 text-center">Anime</div>
+        <!-- <div class="rating col-sm-3">Rating</div>
+        <div class="ranking col-sm-3">Ranking</div> -->
+        <div class="remove col-sm-2"></div>
+      </div>
+      <!-- loop -->
+      <div id="my-anime-list">
+        <%= render "my_list_items", { saved: @saved} %>
+      </div>
+      <!-- -->
+
+
+
+    </div>
+
+      <div class="right-column cod col-4" style="margin-left:0px">
+          <article class="widget">
+            <div class="widget airing_ranking right">
+
+              <div class="ranking-digest">
+                <h2 class="ranking-header"><%= link_to "More", 
+                      anime_airing_rank_list_view_more_path, 
+                      class: "btn-view_more" %>Top Airing Anime
+                </h2>
+                <ul>
+                  <%= render "shared/top_airing_animes" %>
+                </ul>
+              </div>
+            </div>
+          </article>
+
+          <article class="widget">
+            <div class="widget upcoming_ranking right">
+              <div class="ranking-digest">
+                <h2 class="ranking-header"><%= link_to "More", 
+                      anime_upcoming_rank_list_view_more_path, 
+                      class: "btn-view_more" %>Top Upcoming Anime
+                </h2>
+                <ul>
+                  <%= render "shared/top_upcoming_animes" %>
+                </ul>
+              </div>
+            </div>
+          </article>
+        </div>
+  </div>
+
+</div>

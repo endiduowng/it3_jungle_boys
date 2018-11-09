@@ -1,0 +1,8 @@
+<% @animes[0,4].each do |anime| %>
+  <li class="btn-anime">
+      <%= link_to anime_path(anime), class: "link" do %>
+        <%= image_tag (anime.picture), class: "lazyloaded", width: "160", height: "220", alt: "Anime title" %>
+        <span class="title"><%= anime.name %></span>
+      <% end %>
+  </li>
+<% end %>

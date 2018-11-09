@@ -1,0 +1,25 @@
+<footer>
+  <div id="footer-block">
+      <div class="footer-link-block">
+          <p class="footer-link home di-ib">
+              <a href="/">Home</a>
+          </p>
+          <p class="footer-link di-ib">
+              <a href="">About</a>
+              <a href="">Support</a>
+              <a href="">FAQ</a>
+              <a href="">Privacy</a>
+          </p>
+          <p class="footer-link login di-ib">
+            <% if !user_signed_in? %>
+                <%= link_to "Log in", new_user_session_path, id: "malLogin", rel: "nofollow" %>
+                <%= link_to "Sign up", new_user_registration_path %>
+            <% end %>
+              
+          </p>
+      </div>
+      <div id="copyright">
+          MyWibuList.net is a property of MyWibuList, LLC. ©2015 All Rights Reserved.
+      </div>
+  </div>
+</footer>

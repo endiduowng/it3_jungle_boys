@@ -1,0 +1,97 @@
+<p id="notice"><%= notice %></p>
+  <div id="myanimelist">
+    <div class="wrapper ">
+      <div id="contentWrapper">
+        <div>
+          <h1 class="h1">Welcome to MyWibuList.net!</h1>
+        </div>
+        <div id="content">
+          <div class="left-column pt12">
+            <article>
+              <div class="widget seasonal left">
+                <h3 class="widget-header">
+                  <span style="float: right;">
+                    <%= link_to "View More", anime_list_view_more_path, style: "font-weight: normal; font-size: 11px;" %>
+                  </span>
+                  <%= Date.today.to_seasons %> Anime
+                </h3>
+                <div class="widget-content">
+                  <div class="widget-slide-block " id="widget-seasonal-video">
+                    <div class="widget-slide-outer">
+                      <ul class="widget-slide js-widget-slide" data-slide="4" style="width: 3984px; margin-left: 0px;">
+                        <%= render "current_season_animes" %>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article>
+              <div class="widget seasonal left">
+                <h3 class="widget-header">
+                  <span style="float: right;">
+                    <%= link_to "View More", anime_list_view_more_path, style: "font-weight: normal; font-size: 11px;" %>
+                  </span>
+                  Most Popular Videos
+                </h3>
+                <div class="widget-content">
+                  <div class="widget-slide-block " id="widget-seasonal-video">
+                    <div class="widget-slide-outer">
+                      <ul class="widget-slide js-widget-slide" data-slide="4" style="width: 3984px; margin-left: 0px;">
+                        <%= render "most_popular_videos" %>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article>
+              <div class="widget reviews left">
+                <h3 class="widget-header">
+                  <span style="float: right;">
+                    <a href="#" style="font-weight: normal; font-size: 11px;">View More</a>
+                  </span>
+                  Latest Anime Reviews</h3>
+                <div class="widget-content">
+                  <%= render "lastest_anime_review_list", {reviews: @reivews} %>
+                </div>
+              </div>
+            </article>
+
+          </div>
+          <div class="right-column cod">
+            <article class="widget">
+              <div class="widget airing_ranking right">
+
+                <div class="ranking-digest">
+                  <h2 class="ranking-header"><%= link_to "More", 
+                        anime_airing_rank_list_view_more_path, 
+                        class: "btn-view_more" %>Top Airing Anime
+                  </h2>
+                  <ul>
+                    <%= render "shared/top_airing_animes" %>
+                  </ul>
+                </div>
+              </div>
+            </article>
+
+            <article class="widget">
+              <div class="widget upcoming_ranking right">
+
+                <div class="ranking-digest">
+                  <h2 class="ranking-header"><%= link_to "More", anime_upcoming_rank_list_view_more_path, class: "btn-view_more" %>Top Upcoming Anime</h2>
+                  <ul>
+                    <%= render "shared/top_upcoming_animes" %>
+                  </ul>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div> <!--  control container height -->
+      <div style="clear:both;"></div>
+      <!-- end rightbody -->
+    </div>
+  </div>

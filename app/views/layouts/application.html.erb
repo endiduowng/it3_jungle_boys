@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Itnihongo3</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" type="text/css" href="https://myanimelist.cdn-dena.com/static/assets/css/pc/style-abc038a5d1.css">
+
+    <%= yield :style %>
+  </head>
+
+  <body class="page-common index" data-ms="false">
+    <%= render "shared/header" %>
+      <%= yield %>
+    <%= render "shared/footer" %>
+  </body>
+</html>

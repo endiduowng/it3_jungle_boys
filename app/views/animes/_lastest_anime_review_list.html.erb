@@ -1,0 +1,26 @@
+<% reviews.each do |review| %>
+    <div class="item">
+      <div class="image">
+        <%= link_to anime_path(review.anime), class: "picSurround" do %>
+          <%= image_tag review.anime.picture, width: "50", height: "70", class: "hoverinfo_trigger lazyloaded" %>
+        <% end %>
+      </div>
+      <div class="info">
+        <div class="spaceit mt0 pt0">
+          <span class="fs10 lightLink di-ib fl-r">
+            Overall Rating: <%= review.review_score %>
+          </span>
+          <%= link_to anime_path(review.anime) do %>
+            <strong><%= review.anime.name %></strong>
+          <% end %>
+        </div>
+        <div class="textReadability">
+          <%= review.review_description %>
+        </div>
+        <div class="spaceit lightLink">
+          <%= time_ago_in_words(review.created_at).upcase %> AGO by
+          <strong style="color: black"><%= review.user.nickname %></strong>
+        </div>
+      </div>
+    </div>
+<% end %>

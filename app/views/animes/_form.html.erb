@@ -1,0 +1,87 @@
+<%= form_with(model: anime, local: true) do |form| %>
+  <% if anime.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(anime.errors.count, "error") %> prohibited this anime from being saved:</h2>
+
+      <ul>
+      <% anime.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :anime_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :kind %>
+    <%= form.text_field :kind, id: :anime_kind %>
+  </div>
+
+  <div class="field">
+    <%= form.label :producer %>
+    <%= form.text_field :producer, id: :anime_producer %>
+  </div>
+
+  <div class="field">
+    <%= form.label :licencer %>
+    <%= form.text_field :licencer, id: :anime_licencer %>
+  </div>
+
+  <div class="field">
+    <%= form.label :episode %>
+    <%= form.number_field :episode, id: :anime_episode %>
+  </div>
+
+  <div class="field">
+    <%= form.label :premiered %>
+    <%= form.date_select :premiered, id: :anime_premiered %>
+  </div>
+
+  <div class="field">
+    <%= form.label :studio %>
+    <%= form.text_field :studio, id: :anime_studio %>
+  </div>
+
+  <div class="field">
+    <%= form.label :source %>
+    <%= form.text_field :source, id: :anime_source %>
+  </div>
+
+  <div class="field">
+    <%= form.label :genre %>
+    <%= form.text_field :genre, id: :anime_genre %>
+  </div>
+
+  <div class="field">
+    <%= form.label :duration %>
+    <%= form.number_field :duration, id: :anime_duration %>
+  </div>
+
+  <div class="field">
+    <%= form.label :picture %>
+    <%= form.text_field :picture, id: :anime_picture %>
+  </div>
+
+  <div class="field">
+    <%= form.label :rating %>
+    <%= form.text_field :rating, id: :anime_rating %>
+  </div>
+
+  <div class="field">
+    <%= form.label :score %>
+    <%= form.number_field :score, id: :anime_score %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description, id: :anime_description %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

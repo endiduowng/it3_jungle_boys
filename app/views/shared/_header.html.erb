@@ -1,0 +1,43 @@
+<div id="myanimelist">
+  <div class="wrapper ">
+      <div id="headerSmall" class="" style="height:50px; background-image: url(<%= image_path('logo.png') %>);">
+          <div id="header-menu">
+              <div class="header-menu-login">
+                  <% if !user_signed_in? %>
+                    <%= link_to "Log in", new_user_session_path, class: "btn-login", id: "malLogin" %>
+                    <%= link_to "Sign up", new_user_registration_path, class: "btn-signup" %>
+                  <% else %>
+                    <%= link_to current_user.email, user_path(current_user) %>
+                    <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "btn-login" %>
+                  <% end %>
+              </div>
+          </div>
+          <a href="/" class="link-mal-logo">MyWibuList</a>
+      </div>
+
+      <div id="menu" class="">
+          <div id="menu_right">
+              <div id="top-search-bar">
+                  <%= search_form_for @q, html: {class: "searchBar", id: "searchBar"}, url: search_path, method: :post do |f| %>
+                    <%= f.label :name_cont, hidden: true, style: "display: none" %>
+                    <%= f.search_field :name_cont, class: "inputtext fl-l", placeholder: "Search anime" %>
+                    <%= f.submit %>
+                  <% end %>
+              </div>
+          </div>
+          <div id="menu_left">
+              <ul id="nav">
+                  <li class="small"><a href="#" class="non-link" style="height:34px;">Anime</a>
+                  </li>
+                  <li class="small"><a href="#" class="non-link" style="height:34px;">Manga</a>
+                  </li>
+                  <li class=""><a href="#" class="non-link" style="height:34px;">Community</a>
+                  </li>
+
+              </ul>
+          </div>
+      </div> <!--  control container height -->
+      <div style="clear:both;"></div>
+      <!-- end rightbody -->
+  </div>
+</div>
