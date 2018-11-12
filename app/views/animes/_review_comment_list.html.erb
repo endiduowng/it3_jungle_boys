@@ -8,7 +8,7 @@
       <div class="spaceit textReadability word-break pt8 mt8" style="clear: both; border-top: 1px solid #ebebeb;">
         <span style="font-size: 12px"><%= review.review_description %></span>
         <% if review.user == current_user %>
-          <%= link_to "Delete", review_path(review), style: "float: right;", method: :delete, remote: true %>
+          <%= link_to "Delete", review_path(review), style: "float: right;", method: :delete %>
         <% end %>
       </div>
     </div>

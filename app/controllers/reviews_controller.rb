@@ -20,6 +20,7 @@ class ReviewsController < ApplicationController
     respond_to do |format|
       format.js {render inline: "location.reload();" }
     end
+    flash[:notice] = "Created review"
   end
 
   def destroy
@@ -28,20 +29,20 @@ class ReviewsController < ApplicationController
     if @review.destroy
       score = @review.anime.reviews.average(:review_score).round(2)
       Anime.update(@review.anime.id, {score: score})
-      respond_to :js
+      respond_to do |format|
+        format.js {render inline: "location.reload();" }
+      end
+      flash[:notice] = "Deleted review"
     else
       flash[:danger] = "Something went wrong..."
       redirect_to root_path
-    end
-    respond_to do |format|
-      format.js {render inline: "location.reload();" }
     end
   end
 
   def show; end
 
   def edit
-    
+
   end
 
   private
