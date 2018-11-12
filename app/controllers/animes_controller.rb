@@ -76,6 +76,10 @@ class AnimesController < ApplicationController
     @animes = Anime.all.select{|anime| anime.premiered.to_seasons == @current_season}
   end
 
+  def top
+    @animes = Anime.all
+  end
+
   def anime_airing_rank_list
     # Query DB in here
     @animes = Anime.select_top_airing
