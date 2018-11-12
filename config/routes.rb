@@ -21,7 +21,8 @@ Rails.application.routes.draw do
   post '/search', to: 'static_pages#result'
   get '/search', to: 'static_pages#search'
 
-  get "/anime_list_view_more", to: "animes#anime_list"
+  get '/season', to: "animes#anime_list"
+
   get "/anime_airing_rank_list_view_more", to: "animes#anime_airing_rank_list"
   get "/anime_upcoming_rank_list_view_more", to: "animes#anime_upcoming_rank_list"
 end
