@@ -68,7 +68,16 @@ class AnimesController < ApplicationController
   end
 
   def anime_list
-    @animes = Anime.all.select{|anime| anime.premiered.to_seasons == "Fall 2017"}
+    if params[:season]
+      @current_season = params[:season]
+    else  
+      @current_season = Date.today.to_seasons
+    end
+    @animes = Anime.all.select{|anime| anime.premiered.to_seasons == @current_season}
+  end
+
+  def top
+    @animes = Anime.all
   end
 
   def anime_airing_rank_list

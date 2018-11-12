@@ -2,7 +2,7 @@
 
 <head>
 	<title>
-		Seasonal Anime
+		Most Popular Videos
 	</title>
 	<link rel="stylesheet" type="text/css" href="https://myanimelist.cdn-dena.com/static/assets/css/pc/style-abc038a5d1.css">
 </head>
@@ -12,31 +12,9 @@
 		<div class="wrapper ">
 			<div id="contentWrapper">
 				<div>
-					<h1 class="h1">Seasonal Anime</h1>
+					<h1 class="h1">Most Popular Videos</h1>
 				</div>
 				<div id="content" class="pl0 pr0">
-					<div class="navi-seasonal js-navi-seasonal" style="left: 113px;">
-						<div class="horiznav_nav">
-  						<ul>
-          			<li>
-        					<%= link_to previous_season(previous_season(@current_season)), season_path(season: previous_season(previous_season(@current_season))) %>
-      					</li>
-	          		<li>
-	          			<%= link_to previous_season(@current_season), season_path(season: previous_season(@current_season)) %>
-	      				</li>
-	          		<li>
-	          			<%= link_to @current_season, season_path(season: @current_season), class: "on" %>
-	      				</li>
-	          		<li>
-	        				<%= link_to next_season(@current_season), season_path(season: next_season(@current_season)) %>
-	      				</li>
-	          		<li>
-	        				<%= link_to next_season(next_season(@current_season)), season_path(season: next_season(next_season(@current_season))) %>
-	      				</li>
-	      			</ul>
-	      		</div>
-	      	</div>
- 			
 					<div class="js-categories-seasonal" style="padding-top: 0px;">
 						<div class="seasonal-anime-list js-seasonal-anime-list js-seasonal-anime-list-key-1 clearfix">
 
