@@ -13,10 +13,8 @@
           <div class="form-title-row">
               <h1>Log in</h1>
           </div>
-          <% flash.each do |message_type, message| %>
-            <%= content_tag :div, message, class: "alert alert-#{change_type message_type}" %>
-          <% end %>
           <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+            <%= render "shared/devisemes" %>
             <div class="field form-row-login">
               <%= f.label :email %><br/>
               <%= f.email_field :email, autofocus: true, autocomplete: "email" %>

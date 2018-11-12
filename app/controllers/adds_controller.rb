@@ -15,7 +15,7 @@ class AddsController < ApplicationController
     @anime = @add.anime
     respond_to do |format|
       if @add.destroy
-        format.html {redirect_to user_path(current_user)}
+        format.html {redirect_to user_path(current_user), :notice => "Remove from my list"}
         format.js
       end
     end
