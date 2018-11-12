@@ -8,15 +8,20 @@ class ReviewsController < ApplicationController
 
   def create
     review = Review.new(review_params)
-    if review.save
-      score = review.anime.reviews.average(:review_score).round(2)
-      Anime.update(review.anime.id, {score: score})
-      @anime = review.anime
-      respond_to :js
+    if review.review_description.length > 100 && review.review_description.length < 250
+      if review.save
+        score = review.anime.reviews.average(:review_score).round(2)
+        Anime.update(review.anime.id, {score: score})
+        @anime = review.anime
+        respond_to :js
+      else
+        flash[:danger] = "Something went wrong..."
+        redirect_to root_path
+      end
     else
-      flash[:danger] = "Something went wrong..."
-      redirect_to root_path
+      flash[:danger] = "Please enter a review (100-250 characters)"
     end
+    
     respond_to do |format|
       format.js {render inline: "location.reload();" }
     end
@@ -24,10 +29,15 @@ class ReviewsController < ApplicationController
 
   def destroy
     @review = Review.find(params[:id])
-    @anime = @review.anime
     if @review.destroy
-      score = @review.anime.reviews.average(:review_score).round(2)
+      score = @review.anime.reviews
+      if !score.length
+        score = score.average(:review_score).round(2)
+      else
+        score = 0
+      end
       Anime.update(@review.anime.id, {score: score})
+      @anime = @review.anime
       respond_to :js
     else
       flash[:danger] = "Something went wrong..."

@@ -1,3 +1,6 @@
+<% flash.each do |message_type, message| %>
+  <%= content_tag :div, message, class: "alert alert-#{change_type message_type}" %>
+<% end %>
 <%= form_for [anime, Review.new], :html => {:class => "w-100"}, remote: true do |f| %>
   <%= f.hidden_field :user_id, value: current_user.id %>
   <%= f.hidden_field :anime_id, value: anime.id %>
