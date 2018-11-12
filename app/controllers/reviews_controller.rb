@@ -21,10 +21,11 @@ class ReviewsController < ApplicationController
     else
       flash[:danger] = "Please enter a review (100-250 characters)"
     end
-    
+
     respond_to do |format|
       format.js {render inline: "location.reload();" }
     end
+    flash[:notice] = "Created review"
   end
 
   def destroy
@@ -51,7 +52,7 @@ class ReviewsController < ApplicationController
   def show; end
 
   def edit
-    
+
   end
 
   private
