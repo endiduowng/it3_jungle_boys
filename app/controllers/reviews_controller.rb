@@ -8,7 +8,7 @@ class ReviewsController < ApplicationController
 
   def create
     review = Review.new(review_params)
-    if !review.review_score.nil? && review.review_description.length < 250
+    if !review.review_score.nil? && review.review_description.length > 100 && review.review_description.length < 250
       if review.save
         score = review.anime.reviews.average(:review_score).round(2)
         Anime.update(review.anime.id, {score: score})
