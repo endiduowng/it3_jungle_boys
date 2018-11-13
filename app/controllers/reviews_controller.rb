@@ -14,6 +14,7 @@ class ReviewsController < ApplicationController
         Anime.update(review.anime.id, {score: score})
         @anime = review.anime
         respond_to :js
+        flash[:notice] = "Created review"
       else
         flash[:danger] = "Something went wrong..."
         redirect_to root_path
@@ -24,7 +25,6 @@ class ReviewsController < ApplicationController
     respond_to do |format|
       format.js {render inline: "location.reload();" }
     end
-    flash[:notice] = "Created review"
   end
 
   def destroy
@@ -39,6 +39,7 @@ class ReviewsController < ApplicationController
       Anime.update(@review.anime.id, {score: score})
       @anime = @review.anime
       respond_to :js
+      flash[:notice] = "Deleted review"
     else
       flash[:danger] = "Something went wrong..."
       redirect_to root_path
