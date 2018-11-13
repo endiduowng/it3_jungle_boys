@@ -38,7 +38,13 @@
           <%= link_to "Edit", edit_user_registration_path, class: "glyphicon glyphicon-edit" %>
         </div>
       </div>
-      <br>
+      <div class="border row info" style="font-size:12px">
+        <div class="review-num col-12">
+          <div class="row border">
+            <div class="col-12"><%= @user.email %></div>
+          </div>
+        </div>
+      </div>
       <div class="border row info" style="font-size:12px">
         <div class="review-num col-12">
           <div class="row border">
@@ -46,6 +52,8 @@
             <div class="col-7">100</div>
           </div>
         </div>
+      </div>
+      <div class="border row info" style="font-size:12px">
         <div class="joined-date col-12">
           <div class="row border">
             <div class="col-5">Joined date</div>
