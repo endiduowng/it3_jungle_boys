@@ -83,6 +83,17 @@ class AnimesController < ApplicationController
   def anime_airing_rank_list
     # Query DB in here
     @animes = Anime.select_top_airing
+
+    @animes.each_with_index do |anime, index|
+      anime.check_added = anime.is_added(current_user)
+      obj = anime.get_score_from_user(current_user)
+      if obj
+        anime.review_score = obj.review_score 
+      else 
+        anime.review_score = nil
+      end
+    end
+    @animes
   end
 
   def anime_upcoming_rank_list
