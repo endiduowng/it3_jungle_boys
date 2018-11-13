@@ -46,7 +46,7 @@
                     <%= link_to anime_path(anime), class: "hoverinfo_trigger fl-l ml12 mr8" do %>
                       <%= image_tag (anime.picture), width: "50", height: "70", alt: "Aniaame Title", class: "image lazyloaded" %>
                     <% end %>
-                    
+
                     <div class="detail">
                       <div id="area37023">
                         <div id="info37023" rel="a37023" class="hoverinfo"></div>
@@ -67,7 +67,7 @@
 
                   <td class="score ac fs14">
                     <div class="js-top-ranking-score-col di-ib al" style="width: 44.25px;">
-                    
+
                       <i class="icon-score-star mr4 on"></i>
                       <span class="text on">
                       <% if anime.score %>
@@ -79,7 +79,7 @@
 
                   <td class="your-score ac fs14">
                     <div class="js-top-ranking-your-score-col di-ib al" style="width: 40.3438px;">
-                    
+
                       <i class="icon-score-star mr4 on"></i>
                     <% if anime.review_score %>
                       <span class="text"><%= anime.review_score %></span>
@@ -90,13 +90,8 @@
                   </td>
 
                   <td class="status ac">
-                    
-                    <span>
-
-                      <%= link_to "Add to list", anime_adds_path(anime), method: :post, remote: true,
-                        class: "Lightbox_AddEdit btn-addEdit-large btn-anime-watch-status js-anime-watch-status notinmylist" %>
-                      <i class="fa fa-plus-square-o mr4"></i>
-
+                    <span id="add-icon-anime-<%= anime.id.to_s %>">
+                      <%= render "animes/add_icon", {is_added: anime.is_added(current_user), anime: anime} %>
                     </span>
                   </td>
                 </tr>

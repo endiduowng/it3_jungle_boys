@@ -42,7 +42,7 @@
                     <%= link_to anime_path(anime), class: "hoverinfo_trigger fl-l ml12 mr8" do %>
                       <%= image_tag (anime.picture), width: "50", height: "70", alt: "Aniaame Title", class: "image lazyloaded" %>
                     <% end %>
-                    
+
                     <div class="detail">
                       <div id="area37023">
                         <div id="info37023" rel="a37023" class="hoverinfo"></div>
@@ -74,9 +74,9 @@
                   </td>
 
                   <td class="status ac">
-                    <a href="#" class="Lightbox_AddEdit btn-addEdit-large btn-anime-watch-status js-anime-watch-status notinmylist">
-                      <i class="fa fa-plus-square-o mr4"></i>Add to list
-                    </a>
+                    <span id="add-icon-anime-<%= anime.id.to_s %>">
+                      <%= render "animes/add_icon", {is_added: anime.is_added(current_user), anime: anime} %>
+                    </span>
                   </td>
                 </tr>
                 <% end %>
