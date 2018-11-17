@@ -10,10 +10,10 @@
     <div class="row profile-name align-items-center">
       <div class="user-name col-12 text-center"
             style="font-size:20px; margin-left:5px">
-        <% if @user.nickname %>
+        <% if @user.nickname.present? %>
           <%= @user.nickname %>
         <% else %>
-          <%= @user.email %></div>
+          <%= @user.email %>
         <% end %>
       </div>
     </div>

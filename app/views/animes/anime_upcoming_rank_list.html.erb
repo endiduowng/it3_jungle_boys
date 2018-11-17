@@ -62,14 +62,25 @@
                   </td>
 
                   <td class="score ac fs14">
-                    <div class="js-top-ranking-score-col di-ib al" style="width: 44.25px;"><i class="icon-score-star mr4 on"></i><span
-                        class="text on">
-                        <%= anime.score %></span></div>
+                    <div class="js-top-ranking-score-col di-ib al" style="width: 44.25px;">
+                    
+                      <i class="icon-score-star mr4 on"></i>
+                      <% if anime.score %>
+                      <span class="text on"><%= anime.score %></span></div>
+                      <% else %>
+                        <span>No reviews</span>
+                      <% end %>
                   </td>
 
                   <td class="your-score ac fs14">
                     <div class="js-top-ranking-your-score-col di-ib al" style="width: 40.3438px;">
-                      <span class="text ">your score</span>
+                    
+                      <i class="icon-score-star mr4 on"></i>
+                    <% if anime.review_score %>
+                      <span class="text on"><%= anime.review_score %></span>
+                    <% else %>
+                      <span>Not yet</span>
+                    <% end %>
                     </div>
                   </td>
 

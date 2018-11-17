@@ -56,8 +56,15 @@
 										</div>
 
 										<span class="source"><%= anime.source %></span>
-
-										<a href="" title="Quick add anime to my list" class="Lightbox_AddEdit button_add btn-anime-watch-status js-anime-watch-status notinmylist">add</a>
+										<% if anime.is_added(current_user).present? %>
+										<span class="<%= anime.id.to_s %>" id="<%= 'remove-' + anime.id.to_s %>">
+										<%= link_to 'remove from list', add_path(anime.is_added(current_user)), method: :delete, remote: true %>
+										</span>
+										<% else %>
+										<span class="<%= anime.id.to_s %>" id="<%= 'add-' + anime.id.to_s %>">
+										<%= link_to 'add to list', anime_adds_path(anime), method: :post, remote: true%>
+										</span>
+										<% end %>
 									</div>
 
 									<div class="genres js-genre" id="36474">
@@ -99,6 +106,11 @@
 			<!-- end rightbody -->
 		</div>
 	</div>
+	<script>
+		$(document).ready(function() {
+			
+		});
+	</script>
 </body>
 
 </html>
