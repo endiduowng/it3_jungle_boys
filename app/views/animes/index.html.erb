@@ -12,7 +12,7 @@
                 <span style="float: right;">
                   <%= link_to "View More", season_path, style: "font-weight: normal; font-size: 11px;" %>
                 </span>
-                <%= Date.today.to_seasons %> Anime
+                Seasonal Anime
               </h3>
               <div class="widget-content">
                 <div class="widget-slide-block " id="widget-seasonal-video">
@@ -49,9 +49,6 @@
           <article>
             <div class="widget reviews left">
               <h3 class="widget-header">
-                <span style="float: right;">
-                  <a href="#" style="font-weight: normal; font-size: 11px;">View More</a>
-                </span>
                 Latest Anime Reviews</h3>
                 <div class="widget-content">
                   <%= render "lastest_anime_review_list", {reviews: @reivews} %>

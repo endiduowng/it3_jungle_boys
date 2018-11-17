@@ -70,7 +70,7 @@ class AnimesController < ApplicationController
   def anime_list
     if params[:season]
       @current_season = params[:season]
-    else  
+    else
       @current_season = Date.today.to_seasons
     end
     @animes = Anime.all.select{|anime| anime.premiered.to_seasons == @current_season}
@@ -88,8 +88,8 @@ class AnimesController < ApplicationController
       anime.check_added = anime.is_added(current_user)
       obj = anime.get_score_from_user(current_user)
       if obj
-        anime.review_score = obj.review_score 
-      else 
+        anime.review_score = obj.review_score
+      else
         anime.review_score = nil
       end
     end
@@ -99,6 +99,10 @@ class AnimesController < ApplicationController
   def anime_upcoming_rank_list
     # Query DB in here
     @animes = Anime.select_top_upcoming
+  end
+
+  def admin
+    @animes = Anime.all
   end
 
   private

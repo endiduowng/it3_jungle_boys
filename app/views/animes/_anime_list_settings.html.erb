@@ -1,0 +1,15 @@
+<% @animes.each do |anime|%>
+  <tr>
+    <th scope="row"><%= @animes.find_index(anime) + 1 %></th>
+    <td class="col-9">
+      <%= link_to anime_path(anime) do %>
+        <%= image_tag anime.picture, class: "img-responsive", height: "80px", width: "80px" %>
+      <% end %>
+      <strong><%= anime.name %></strong>
+    </td>
+    <td class="col-2">
+      <%= link_to "Edit", edit_anime_path(anime), class: "btn btn-outline-secondary" %>
+      <%= link_to "Delete", anime_path(anime), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-outline-danger" %>
+    </td>
+  </tr>
+<% end %>
