@@ -19,7 +19,11 @@
         </div>
         <div class="spaceit lightLink">
           <%= time_ago_in_words(review.created_at).upcase %> AGO by
-          <strong style="color: black"><%= review.user.nickname %></strong>
+          <% if review.user.nickname.present? %>
+            <strong style="color: black"><%= review.user.nickname %></strong>
+          <% else %>
+            <strong style="color: black"><%= review.user.email %></strong>
+          <% end %>
         </div>
       </div>
     </div>

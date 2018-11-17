@@ -23,10 +23,13 @@
   </div>
   <div id="contentWrapper" itemscope itemtype="http://schema.org/Product">
     <div>
-      <div class="header-right">
-
-      <%= link_to 'Edit Anime Infomation', edit_anime_path(anime), class: "js-anime-edit-info-button" %>
-      </div>
+      <% if user_signed_in? %>
+        <% if is_admin?(current_user) %>
+          <div class="header-right">
+          <%= link_to 'Edit Anime Infomation', edit_anime_path(anime), class: "js-anime-edit-info-button" %>
+          </div>
+        <% end %>
+      <% end %>
       <h1 class="h1"><span itemprop="name"><%= anime.name %></span></h1>
     </div>
   <div id="content" >

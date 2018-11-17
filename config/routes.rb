@@ -25,6 +25,8 @@ Rails.application.routes.draw do
 
   get "/top", to: "animes#top"
 
+  get "/admin", to: "animes#admin"
+
   get "/anime_airing_rank_list_view_more", to: "animes#anime_airing_rank_list"
   get "/anime_upcoming_rank_list_view_more", to: "animes#anime_upcoming_rank_list"
 end
