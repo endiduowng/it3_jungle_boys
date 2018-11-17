@@ -69,9 +69,8 @@
                     <div class="js-top-ranking-score-col di-ib al" style="width: 44.25px;">
 
                       <i class="icon-score-star mr4 on"></i>
-                      <span class="text on">
                       <% if anime.score %>
-                        <%= anime.score %></span></div>
+                      <span class="text on"><%= anime.score %></span></div>
                       <% else %>
                         <span>No reviews</span>
                       <% end %>
@@ -82,9 +81,9 @@
 
                       <i class="icon-score-star mr4 on"></i>
                     <% if anime.review_score %>
-                      <span class="text"><%= anime.review_score %></span>
+                      <span class="text on"><%= anime.review_score %></span>
                     <% else %>
-                      <span>No reviews</span>
+                      <span>Not yet</span>
                     <% end %>
                     </div>
                   </td>
