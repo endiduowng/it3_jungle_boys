@@ -1,7 +1,7 @@
 <% if is_added.present? %>
-  <%= link_to "Remove from list", add_path(is_added), method: :delete, remote: true, 
-      class: "btn btn-danger" %>
+  <%= link_to "Del from list", add_path(is_added), method: :delete, remote: true, 
+      class: "btn btn-danger", style: 'color: white' %>
 <% else %>
   <%= link_to "Add to list", anime_adds_path(anime), method: :post, remote: true, 
-      class: "btn btn-primary" %>
+      class: "btn btn-primary", style: 'color: white' %>
 <% end %>
