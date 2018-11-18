@@ -1,11 +1,18 @@
 <% anime.reviews.each do |review| %>
   <div class="borderDark">
+    <div class="picSurround col-1" style="float:left; margin-top:5px;">
+      <% if review.user.image.url.present? %>
+        <%= image_tag (review.user.image.url), class: "lazyloaded img-circle img-responsive", width: "30", height: "30", alt: "Profile pic" %>
+      <% else %>
+        <%= image_tag ("default_profile.jpg"), class: "lazyloaded img-circle img-responsive", width: "30", height: "30", alt: "Profile pic" %>
+      <% end %>
+    </div>
     <div class="mb-2">
       <div class="spaceit">
         <span style="font-size: 10px"><strong><%= review.user.nickname || review.user.email %></strong></span>
         <div class="review-rating" data-score="<%= review.review_score %>"></div>
       </div>
-      <div class="spaceit textReadability word-break pt8 mt8" style="clear: both; border-top: 1px solid #ebebeb;">
+      <div class="spaceit textReadability word-break pt8 mt8" style="clear: both; border-top: 1px solid #ebebeb; margin-left: 15px;">
         <span style="font-size: 12px"><%= review.review_description %></span>
         <% if review.user == current_user %>
           <%= link_to "Delete", review_path(review), style: "float: right;", method: :delete, remote: true %>
