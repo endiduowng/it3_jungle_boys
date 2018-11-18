@@ -1,6 +1,8 @@
 class AnimesController < ApplicationController
   before_action :set_anime, only: [:show, :edit, :update, :destroy]
   before_action :user_signed_in?, only: [:new, :edit, :update, :destroy]
+  before_action :authorized_admin, only: [:admin]
+
   # GET /animes
   # GET /animes.json
   def index
@@ -103,6 +105,16 @@ class AnimesController < ApplicationController
 
   def admin
     @animes = Anime.all
+  end
+
+  def authorized_admin
+    if !user_signed_in?
+      flash[:alert] = "Please log in."
+      redirect_to new_user_session_path
+    else
+      redirect_to(root_url) unless current_user.role == "admin"
+      flash[:alert] = "You don't have a permisson."
+    end
   end
 
   private
