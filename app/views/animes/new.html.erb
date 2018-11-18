@@ -1,3 +1,9 @@
+<% content_for :style do %>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+    crossorigin="anonymous">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<% end %>
 
 <div class="container" style="width:1060px;">
     <div class="row">
@@ -100,15 +106,12 @@
     <div class="row justify-content-center">
         <div class="col-4">
             <div class="form-group row">
-                <%= f.label :score, class: "col-3 col-form-label text-right font-weight-bold"%>
-                <%= f.text_field :score, class: "form-control col-9"%>
-            </div>
-        </div>
-        <div class="col-4">
-            <div class="form-group row">
                 <%= f.label :description, class: "col-3 col-form-label text-right font-weight-bold"%>
                 <%= f.text_area :description, class: "form-control col-9"%>
             </div>
+        </div>
+        <div class="col-4">
+                
         </div>
     </div>  
 
