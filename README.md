@@ -25,6 +25,7 @@ $ bundle install
 
 ### Create database, table and data
 Update MySQL's username, password to file database.yml (line 16, 17)
+
 Create database:
 ```
 $ rails db:create
