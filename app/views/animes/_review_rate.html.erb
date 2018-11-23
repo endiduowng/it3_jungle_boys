@@ -1,11 +1,22 @@
 <%= simple_form_for([@anime, @anime.reviews.build]) do |f| %>
-	<div id="rating-form">
-	</div>
+	<div id="rating-story"></div>
+	<div id="rating-visual"></div>
+	<div id="rating-audio"></div>
 	<%= f.button :submit, :class => "btn-custom2" %>
 <% end %>
 
 <script>
-	$('#rating-form').raty({
+	$('#rating-story').raty({
+		path: '/assets/',
+		scoreName: 'review[rating]'
+	});
+
+	$('#rating-visual').raty({
+		path: '/assets/',
+		scoreName: 'review[rating]'
+	});
+
+	$('#rating-audio').raty({
 		path: '/assets/',
 		scoreName: 'review[rating]'
 	});
