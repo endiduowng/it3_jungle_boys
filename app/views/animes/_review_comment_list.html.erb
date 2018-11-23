@@ -9,8 +9,29 @@
     </div>
     <div class="mb-2">
       <div class="spaceit">
-        <span style="font-size: 10px"><strong><%= review.user.nickname || review.user.email %></strong></span>
-        <div class="review-rating" data-score="<%= review.review_score %>"></div>
+        <span style="font-size: 10px">
+          <table>
+          <tbody>
+          <tr>
+            <td valign="top">
+              <div class="picSurround">
+                <% if (User.find_by id: review.user_id).image.url.present? %>
+                  <%= image_tag ((User.find_by id: review.user_id).image.url), class: "lazyloaded img-circle img-responsive", width: "30", height: "30" %>
+                <% else %>
+                  <%= image_tag ("default_profile.jpg"), class: "lazyloaded img-circle img-responsive", width: "30", height: "30" %>
+                <% end %>
+              </div>
+            </td>
+            <td valign="top">
+              <strong><%= review.user.nickname || review.user.email %></strong>
+              <div class="review-rating" data-score="<%= review.review_story_score %>"></div>
+              <div class="review-rating" data-score="<%= review.review_visual_score %>"></div>
+              <div class="review-rating" data-score="<%= review.review_audio_score %>"></div>
+            </td>
+          </tr>
+          </tbody>
+          </table>
+        </span>
       </div>
       <div class="spaceit textReadability word-break pt8 mt8" style="clear: both; border-top: 1px solid #ebebeb; margin-left: 15px;">
         <span style="font-size: 12px"><%= review.review_description %></span>

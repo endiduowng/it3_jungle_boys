@@ -41,12 +41,15 @@ ActiveRecord::Schema.define(version: 20181113091451) do
   end
 
   create_table "reviews", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer "review_score"
+    t.float "review_score", limit: 24
     t.string "review_description"
     t.bigint "user_id"
     t.bigint "anime_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float "review_story_score", limit: 24
+    t.float "review_visual_score", limit: 24
+    t.float "review_audio_score", limit: 24
     t.index ["anime_id"], name: "index_reviews_on_anime_id"
     t.index ["user_id"], name: "index_reviews_on_user_id"
   end
