@@ -25,7 +25,7 @@
         <div id="menu_right">
           <div id="top-search-bar">
             <%= search_form_for @q, html: {class: "searchBar", id: "searchBar"}, url: search_path, method: :post do |f| %>
-              <%= f.search_field :name_cont, id: "topSearchText", type: "text", class: "inputtext fl-l", placeholder: "Search Anime, Manga, and more...", size: "30", autocomplete: "off" %>
+              <%= f.search_field :name_or_kind_or_producer_or_studio_or_description_cont, id: "topSearchText", type: "text", class: "inputtext fl-l", placeholder: "Search Anime, Manga, and more...", size: "30", autocomplete: "off" %>
               <%= f.submit id: "topSearchButon", class: "fl-l", value: ""  %>
             <% end %>
           </div>
