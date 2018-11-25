@@ -1,6 +1,6 @@
 class ReviewsController < ApplicationController
   before_action :authenticate_user!
-  before_action :find_anime, only: [:show, :edit]
+  before_action :find_anime, only: [:show]
 
   def index
     @review = @anime.reviews.include(:user)
@@ -52,7 +52,33 @@ class ReviewsController < ApplicationController
 
   def show; end
 
-  def edit; end
+  def edit
+    @review = Review.find(params[:id])
+    @anime = @review.anime
+    respond_to :js
+  end
+
+  def update
+    @review = Review.find(params[:id])
+    @anime = @review.anime
+    review = Review.new(review_params)
+    if !review.review_story_score.nil? && !review.review_visual_score.nil? && !review.review_audio_score.nil? && review.review_description.length > 1 && review.review_description.length < 250
+      review.review_score = (review.review_story_score + review.review_visual_score + review.review_audio_score).fdiv(3).round(1)
+      if @review.update_attributes(review_story_score: review.review_story_score, review_audio_score: review.review_audio_score, review_visual_score: review.review_visual_score, review_description: review.review_description, review_score: review.review_score)
+        score = review.anime.reviews.average(:review_score).round(2)
+        @anime.update(score: score)
+        respond_to :js
+        flash[:notice] = "Updated review success"
+      else
+        flash[:alert] = "Something went wrong..."
+      end
+    else
+      flash[:alert] = "Update failed. Please rating and enter a review (250 characters)"
+    end
+    respond_to do |format|
+      format.js {render inline: "location.reload();" }
+    end
+  end
 
   private
     def find_anime
