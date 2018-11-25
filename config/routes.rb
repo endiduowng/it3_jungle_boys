@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :animes do
     resources :adds, only: [:create, :destroy], shallow: true
-    resources :reviews, only: [:index, :create, :destroy], shallow: true
+    resources :reviews
   end
   post '/rate' => 'rater#create', :as => 'rate'
   root "animes#index"
