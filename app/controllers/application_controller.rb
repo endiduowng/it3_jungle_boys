@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
 
   def search
   	@q = Anime.ransack(params[:q])
-  	@search_animes = @q.result(distinct: true)
+    @search_animes = @q.result(distinct: true).page params[:page]
+    @count = @q.result(distinct: true).count
   end
 end

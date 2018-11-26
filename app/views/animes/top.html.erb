@@ -15,6 +15,9 @@
 					<h1 class="h1">Most Popular Videos</h1>
 				</div>
 				<div id="content" class="pl0 pr0">
+					<div class="navi-seasonal js-navi-seasonal" style="left: 113px;">
+						<%= paginate @animes, :method => :post, style: "display:inline-block;" %>
+					</div>
 					<div class="js-categories-seasonal" style="padding-top: 0px;">
 						<div class="seasonal-anime-list js-seasonal-anime-list js-seasonal-anime-list-key-1 clearfix">
 

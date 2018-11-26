@@ -7,6 +7,8 @@ class AnimesController < ApplicationController
   # GET /animes.json
   def index
     @animes = Anime.all
+    @current_season_animes = Anime.order('premiered DESC').page.per(4)
+    @most_popular_videos = Anime.page.per(4)
     @reivews = Review.all.order(:created_at => :desc)
     @top_airing_animes = Anime.select_top_airing
     @top_upcoming_animes = Anime.select_top_upcoming
@@ -76,10 +78,11 @@ class AnimesController < ApplicationController
       @current_season = Date.today.to_seasons
     end
     @animes = Anime.all.select{|anime| anime.premiered.to_seasons == @current_season}
+    @animes = Kaminari.paginate_array(@animes).page params[:page]
   end
 
   def top
-    @animes = Anime.all
+    @animes = Anime.page params[:page]
   end
 
   def anime_airing_rank_list
@@ -95,12 +98,13 @@ class AnimesController < ApplicationController
         anime.review_score = nil
       end
     end
-    @animes
+    @animes = @animes.page params[:page]
   end
 
   def anime_upcoming_rank_list
     # Query DB in here
     @animes = Anime.select_top_upcoming
+    @animes = @animes.page params[:page]
   end
 
   def admin

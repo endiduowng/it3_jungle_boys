@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   resources :reviews
 
   post "/search", to: "static_pages#result"
-  get "/search", to: "static_pages#search"
+  get "/search", to: "static_pages#result"
 
   get "/season", to: "animes#anime_list"
 

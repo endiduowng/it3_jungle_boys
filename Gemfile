@@ -30,6 +30,7 @@ gem 'jquery-rails'
 gem 'ratyrate'
 gem 'simple_form'
 gem 'toastr-rails'
+gem 'kaminari'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
