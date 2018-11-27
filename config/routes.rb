@@ -20,6 +20,8 @@ Rails.application.routes.draw do
 
   post "/search", to: "static_pages#result"
   get "/search", to: "static_pages#result"
+  
+  post "/sort_by_rating", to: "animes#sort_by_rating"
 
   get "/season", to: "animes#anime_list"
 

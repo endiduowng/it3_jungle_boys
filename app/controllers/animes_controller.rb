@@ -90,12 +90,17 @@ class AnimesController < ApplicationController
     @animes = Anime.select_top_airing
 
     @animes.each_with_index do |anime, index|
-      anime.check_added = anime.is_added(current_user)
-      obj = anime.get_score_from_user(current_user)
-      if obj
-        anime.review_score = obj.review_score
+      if current_user
+        anime.check_added = anime.is_added(current_user)
+        obj = anime.get_score_from_user(current_user)
+        if obj
+          anime.review_score = obj.review_score
+        else
+          anime.review_score = nil
+        end
       else
-        anime.review_score = nil
+        anime.check_added = nil
+        anime.review_score = nil 
       end
     end
     @animes = @animes.page params[:page]
@@ -104,6 +109,20 @@ class AnimesController < ApplicationController
   def anime_upcoming_rank_list
     # Query DB in here
     @animes = Anime.select_top_upcoming
+    @animes.each_with_index do |anime, index|
+      if current_user
+        anime.check_added = anime.is_added(current_user)
+        obj = anime.get_score_from_user(current_user)
+        if obj
+          anime.review_score = obj.review_score
+        else
+          anime.review_score = nil
+        end
+      else
+        anime.check_added = nil
+        anime.review_score = nil 
+      end
+    end
     @animes = @animes.page params[:page]
   end
 
@@ -119,6 +138,14 @@ class AnimesController < ApplicationController
       redirect_to(root_url) unless current_user.role == "admin"
       flash[:alert] = "You don't have a permisson."
     end
+  end
+
+  def sort_by_rating
+    @count = params[:count]
+    @search_animes = params[:search_animes]
+    byebug
+    @search_animes.order(:score => :desc)
+    render "static_pages/result"
   end
 
   private
