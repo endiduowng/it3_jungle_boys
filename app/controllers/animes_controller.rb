@@ -140,11 +140,10 @@ class AnimesController < ApplicationController
     end
   end
 
-  def sort_by_rating
-    @count = params[:count]
-    @search_animes = params[:search_animes]
-    byebug
-    @search_animes.order(:score => :desc)
+  def sort_by_score
+    @q = Anime.ransack(params[:q])
+    @search_animes = @q.result(distinct: true).order(:score => :desc).page params[:page]
+    @count = @q.result(distinct: true).count
     render "static_pages/result"
   end
 

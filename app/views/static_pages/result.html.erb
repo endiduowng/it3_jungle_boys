@@ -5,7 +5,9 @@
 		<table width="100%">
 			<th>
 				<td><h2 class="lead"><strong class="text-danger"><%= @count %></strong> results were found for the search for <strong class="text-danger"><%= @q.name_cont %></strong></h2></td>
-				
+				<td>
+					<%= button_to 'Sort by score', sort_by_score_path, :method => :get %>
+				</td>
 			</th>
 		</table>
 		
@@ -69,7 +71,7 @@
 					</div>
 					<div class="scormem">
 						<span class="member fl-r" title="Members">166,262</span>
-						<span class="score" title="Score">8.22</span>
+						<span class="score" title="Score"> <%= anime.score || 0 %></span>
 					</div>
 				</div>
 			</div>
