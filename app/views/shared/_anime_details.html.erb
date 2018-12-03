@@ -39,9 +39,9 @@
 	 <td class="borderClass" width="225" style="border-width: 0 1px 0 0;" valign="top"><div class="js-scrollfix-bottom" style="width: 225px">
 
   <div style="text-align: center;">
-    
+
       <%= image_tag anime.picture, class: "ac", itemprop: "image", alt: anime.name, width: 225, height: 318 %>
-    
+
   </div>
 
   <% if user_signed_in? %>
@@ -132,7 +132,7 @@
 </div>
 <div class="spaceit po-r js-statistics-info di-ib" data-id="info2">
   <span class="dark_text">Ranked:</span>
-  #295
+  <%= @list_animes.find_index(@anime) + 1 %>
 
 </div>
 <div>

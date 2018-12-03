@@ -8,7 +8,7 @@
       <div class="info">
         <div class="spaceit mt0 pt0">
           <span class="fs10 lightLink di-ib fl-r">
-            Overall Rating: <%= review.review_score %>
+            Overall Rating: <strong><%= review.review_score %></strong>
           </span>
           <%= link_to anime_path(review.anime) do %>
             <strong><%= review.anime.name %></strong>

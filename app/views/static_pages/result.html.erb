@@ -1,7 +1,7 @@
 <div id="myanimelist">
 	<hgroup class="mb20">
 		<h1>Search Results</h1>
-		<h2 class="lead"><strong class="text-danger"><%= @count %></strong> results were found for the search for <strong class="text-danger"><%= @q.name_cont %></strong></h2>								
+		<h2 class="lead"><strong class="text-danger"><%= @count %></strong> results were found for the search
 	</hgroup>
 	<div class="navi-seasonal js-navi-seasonal" style="left: 113px;">
 		<%= paginate @search_animes, :method => :post, style: "display:inline-block;" %>
@@ -25,15 +25,6 @@
 						</div>
 
 						<span class="source"><%= anime.source %></span>
-						<% if anime.is_added(current_user).present? %>
-						<span class="<%= anime.id.to_s %>" id="<%= 'remove-' + anime.id.to_s %>">
-						<%= link_to 'remove from list', add_path(anime.is_added(current_user)), method: :delete, remote: true %>
-						</span>
-						<% else %>
-						<span class="<%= anime.id.to_s %>" id="<%= 'add-' + anime.id.to_s %>">
-						<%= link_to 'add to list', anime_adds_path(anime), method: :post, remote: true%>
-						</span>
-						<% end %>
 					</div>
 
 					<div class="genres js-genre" id="36474">
@@ -46,9 +37,10 @@
 				</div>
 
 				<!-- anime poster -->
-				<div class="image"><%= image_tag(anime.picture, size: "167x242", alt: anime.name) %>
-				</div>
-
+				<%= link_to anime_path(anime) do %>
+					<div class="image"><%= image_tag(anime.picture, size: "167x242", alt: anime.name) %>
+					</div>
+				<% end %>
 				<div class="synopsis js-synopsis" style="width: 155px;">
 					<span class="preline"><%= anime.description %></span>
 					<p class="licensors on" data-licensors="Aniplex of America,"><span class="fw-b">Licensor:</span><br><%= anime.licencer %></p>
@@ -61,7 +53,7 @@
 					</div>
 					<div class="scormem">
 						<span class="member fl-r" title="Members">166,262</span>
-						<span class="score" title="Score">8.22</span>
+						<span class="score" title="Score"><%= anime.score || 0 %></span>
 					</div>
 				</div>
 			</div>

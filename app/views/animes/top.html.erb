@@ -37,8 +37,6 @@
 										</div>
 
 										<span class="source"><%= anime.source %></span>
-
-										<a href="" title="Quick add anime to my list" class="Lightbox_AddEdit button_add btn-anime-watch-status js-anime-watch-status notinmylist">add</a>
 									</div>
 
 									<div class="genres js-genre" id="36474">
@@ -51,8 +49,10 @@
 								</div>
 
 								<!-- anime poster -->
-								<div class="image"><%= image_tag(anime.picture, size: "167x242", alt: anime.name) %>
-								</div>
+								<%= link_to anime_path(anime) do %>
+									<div class="image"><%= image_tag(anime.picture, size: "167x242", alt: anime.name) %>
+									</div>
+								<% end %>
 
 								<div class="synopsis js-synopsis" style="width: 155px;">
 									<span class="preline"><%= anime.description %></span>
@@ -66,7 +66,7 @@
 									</div>
 									<div class="scormem">
 										<span class="member fl-r" title="Members">166,262</span>
-										<span class="score" title="Score">8.22</span>
+										<span class="score" title="Score"><%= anime.score || 0 %></span>
 									</div>
 								</div>
 							</div>

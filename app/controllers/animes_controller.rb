@@ -17,6 +17,7 @@ class AnimesController < ApplicationController
   # GET /animes/1
   # GET /animes/1.json
   def show
+    @list_animes = Anime.all.order(:score => :desc)
     @add = @anime.adds.includes(:user)
     @is_added = @anime.is_added(current_user)
     @review = Review.new
