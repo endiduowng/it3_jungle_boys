@@ -16,10 +16,10 @@
               </div>
             </td>
             <td valign="top">
-              <strong><%= review.user.nickname || review.user.email %></strong>
-              <div class="review-rating" data-score="<%= review.review_story_score %>"><p>Story:</p></div>
-              <div class="review-rating" data-score="<%= review.review_visual_score %>"><p>Visual:</p></div>
-              <div class="review-rating" data-score="<%= review.review_audio_score %>"><p>Audio:</p></div>
+              <strong style="margin-left: 10px; font-size: 12px;"><%= review.user.nickname || review.user.email %></strong>
+              <div class="review-rating" data-score="<%= review.review_story_score %>" style="margin-left: 10px; font-size: 12px;">Story :</div>
+              <div class="review-rating" data-score="<%= review.review_visual_score %>" style="margin-left: 10px; font-size: 12px;">Visual:</div>
+              <div class="review-rating" data-score="<%= review.review_audio_score %>" style="margin-left: 10px; font-size: 12px;">Audio :</div>
             </td>
           </tr>
           </tbody>
@@ -33,7 +33,7 @@
             <button type="button" class="btn btn-danger" style="float:right;">Delete</button>
           <% end %>
           <%= link_to edit_anime_review_path(review.anime, review), remote: true do %>
-            <button type="button" class="btn btn-success" style="float:right;">Edit</button>
+            <button type="button" class="btn btn-success" style="float:right; margin-right: 5px;">Edit</button>
           <% end %>
         <% end %>
       </div>

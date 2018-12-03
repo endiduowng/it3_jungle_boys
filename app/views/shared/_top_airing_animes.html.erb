@@ -1,11 +1,11 @@
 <% @top_airing_animes[0,5].each_with_index do |anime, index| %>
   <li class="ranking-unit">
-  
+
       <span class="rank"><%= index + 1 %></span>
       <span class="data-image">
       <%= link_to anime_path(anime), class: "link" do %>
-      <%= image_tag (anime.picture), 
-            width: "50", height: "70", alt: "Aniaame Title", 
+      <%= image_tag (anime.picture),
+            width: "50", height: "70", alt: "Aniaame Title",
             class: "image lazyloaded" %>
       <% end %>
       </span>
@@ -13,10 +13,10 @@
       <a class="title" href="<%= anime_path(anime)%>"><%= anime.name %></a>
       <span class="info pt8">
           <%= anime.producer[0..25] %><br>
-          <%= anime.episode %> eps<br> 
+          <%= anime.episode %> eps<br>
           scored <%= anime.score %>
       </span><br>
-      <span class="members pb8">66,725 reviewers</span>
+      <span class="members pb8"><%= anime.reviews.count %> reviewers</span>
       </p>
   </li>
 <% end %>
