@@ -13,18 +13,18 @@ class Anime < ApplicationRecord
 
   def self.select_top_airing
     Anime.
-      where('premiered < ?', Date.today).
+      where("premiered < ?", Date.today).
       order(score: :desc)
   end
 
   def self.select_top_upcoming
     Anime.
-      where('premiered > ?', Date.today).
+      where("premiered > ?", Date.today).
       order(score: :desc)
   end
 
   def get_score_from_user(user)
-    reviewObj = Review.where('user_id = ? and anime_id = ?', user.id, id).first
+    reviewObj = Review.where("user_id = ? and anime_id = ?", user.id, id).first
   end
 
 end
