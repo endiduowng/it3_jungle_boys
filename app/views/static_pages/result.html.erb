@@ -1,7 +1,17 @@
+
 <div id="myanimelist">
 	<hgroup class="mb20">
 		<h1>Search Results</h1>
-		<h2 class="lead"><strong class="text-danger"><%= @count %></strong> results were found for the search
+		<table width="100%">
+			<th>
+				<td><h2 class="lead"><strong class="text-danger"><%= @count %></strong> results were found for the search for <strong class="text-danger"><%= @q.name_cont %></strong></h2></td>
+				<td>
+					<%= button_to 'Sort by score', sort_by_score_path, :method => :get %>
+				</td>
+			</th>
+		</table>
+		
+		
 	</hgroup>
 	<div class="navi-seasonal js-navi-seasonal" style="left: 113px;">
 		<%= paginate @search_animes, :method => :post, style: "display:inline-block;" %>
