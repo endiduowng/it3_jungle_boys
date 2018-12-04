@@ -71,7 +71,14 @@
 
 <div class="spaceit">
   <span class="dark_text">Episodes:</span>
-  <%= anime.episode %>
+  <span>
+    <% if anime.episode < 0 %>
+      <span>Unknown</span>
+      <br>
+    <% else %>
+      <%= anime.episode %><br>
+    <% end %>
+  </span>
   </div>
 
 <div>
