@@ -33,7 +33,14 @@
 									<div class="prodsrc">
 										<span class="producer"><%= anime.producer %></span>
 										<div class="eps">
-											<span><%= anime.episode %></span>
+											<span>
+												<% if anime.episode < 0 %>
+												<span>Unknown eps</span>
+												<br>
+												<% else %>
+												<%= anime.episode %> eps<br>
+												<% end %>
+											</span>
 										</div>
 
 										<span class="source"><%= anime.source %></span>

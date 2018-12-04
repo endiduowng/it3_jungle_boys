@@ -13,8 +13,13 @@
       <a class="title" href="<%= anime_path(anime)%>"><%= anime.name %></a>
       <span class="info pt8">
           <%= anime.producer[0..25] %><br>
-          <%= anime.episode %> eps<br>
-          scored <%= anime.score %>
+          <% if anime.episode < 0 %>
+            <span>Unknown eps</span>
+            <br>
+          <% else %>
+            <%= anime.episode %> eps<br>
+          <% end %>
+          <%= anime.score || 0 %> scored 
       </span><br>
       <span class="members pb8"><%= anime.reviews.count %> reviewers</span>
       </p>

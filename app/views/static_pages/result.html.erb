@@ -4,9 +4,9 @@
 		<h1>Search Results</h1>
 		<table width="100%">
 			<th>
-				<td><h2 class="lead"><strong class="text-danger"><%= @count %></strong> results were found for the search for <strong class="text-danger"><%= @q.name_cont %></strong></h2></td>
+				<td><h2 class="lead"><strong class="text-danger"><%= @count %></strong> results were found for the search for "<%= @q.name_or_kind_or_producer_or_studio_or_description_cont.to_s %>"</h2></td>
 				<td>
-					<%= button_to 'Sort by score', sort_by_score_path, :method => :get %>
+					<%= sort_link @q, :score, "Sort by Score" %>
 				</td>
 			</th>
 		</table>
@@ -31,7 +31,14 @@
 					<div class="prodsrc">
 						<span class="producer"><%= anime.producer %></span>
 						<div class="eps">
-							<span><%= anime.episode %></span>
+              <span>
+                <% if anime.episode < 0 %>
+                  <span>Unknown eps</span>
+                  <br>
+                <% else %>
+                  <%= anime.episode %> eps<br>
+                <% end %>
+              </span>
 						</div>
 
 						<span class="source"><%= anime.source %></span>
