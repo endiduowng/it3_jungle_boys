@@ -81,3 +81,7 @@ div {
 label {
   display: block;
 }
+
+#topSearchText {
+  box-sizing: content-box !important;
+}
