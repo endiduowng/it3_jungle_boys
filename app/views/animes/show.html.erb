@@ -25,7 +25,7 @@
           </div>
           <div class="di-ib ml12 pl20 pt8">
             <span class="numbers ranked" title="based on the top anime page. Please note that "Not yet aired" and "R18+" titles are excluded.">Ranked <strong>#<%= @list_animes.find_index(@anime) + 1 %></strong></span>
-            <span class="numbers members">Members <strong>162,725</strong></span>
+            <span class="numbers members">Reviewers: <strong><%= @anime.reviews.count %></strong></span>
         </div>
       </div>
     </div>

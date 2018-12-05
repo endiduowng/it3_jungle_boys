@@ -1,14 +1,7 @@
 User.create!([
-  {email: "admin@gmail.com", encrypted_password: "$2a$11$joIGebG2lbgPBpYEJf0JtOKHfmPpmx8xq7AmsjYG1c0Keiu7su54q", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, nickname: nil, image: nil, role: "admin"},
-  {email: "hienhack96@gmail.com", encrypted_password: "$2a$11$hhk2crTAA5FBS/aQLHIb9eJtdwBWgQ2YzwoLOwJNgUfRkN/w1mcTq", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, nickname: nil, image: nil, role: "user"},
-  {email: "duongchan@gmail.com", encrypted_password: "$2a$11$MeNJC/ma4V5undb0wn84duX34tGzk0ns81aAGldFtURbCMe4qo7gm", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, nickname: nil, image: nil, role: "user"}
-])
-Add.create!([
-  {anime_id: 35073, user_id: 3},
-  {anime_id: 36593, user_id: 3},
-  {anime_id: 36522, user_id: 3},
-  {anime_id: 37244, user_id: 3},
-  {anime_id: 37343, user_id: 3}
+  {email: 'admin@gmail.com', password: '123456', password_confirmation: '123456', role: 1},
+  {email: 'hienhack96@gmail.com', password: '123456', password_confirmation: '123456', role: 0},
+  {email: 'duong@gmail.com', password: '123456', password_confirmation: '123456', role: 0}
 ])
 Anime.create!([
   {name: "One Piece", kind: "TV", producer: "Fuji TV, TAP, Shueisha", licencer: "Funimation, 4Kids Entertainment", episode: -1, premiered: "2018-11-12", studio: "Toei Animation", source: "Manga", genre: "Action, Adventure, Comedy, Super Power, Drama, Fantasy, Shounen", duration: 24, picture: "https://myanimelist.cdn-dena.com/images/anime/5/19082l.jpg", rating: "PG-13 - Teens 13 or older", score: nil, description: "Gol D. Roger was known as the \"Pirate King,\" the strongest and most infamous being to have sailed the Grand Line. The capture and execution of Roger by the World Government brought a change throughout the world. His last words before his death revealed the existence of the greatest treasure in the world, One Piece. It was this revelation that brought about the Grand Age of Pirates, men who dreamed of finding One Piece—which promises an unlimited amount of riches and fame—and quite possibly the pinnacle of glory and the title of the Pirate King. Enter Monkey D. Luffy, a 17-year-old boy who defies your standard definition of a pirate. Rather than the popular persona of a wicked, hardened, toothless pirate ransacking villages for fun, Luffy’s reason for being a pirate is one of pure wonder: the thought of an exciting adventure that leads him to intriguing people and ultimately, the promised treasure. Following in the footsteps of his childhood hero, Luffy and his crew travel across the Grand Line, experiencing crazy adventures, unveiling dark mysteries and battling strong enemies, all in order to reach the most coveted of all fortunes—One Piece. [Written by MAL Rewrite]"},
@@ -129,11 +122,4 @@ Anime.create!([
   {name: "Gan Gan Ganko-chan 2nd Season", kind: "TV", producer: "", licencer: "", episode: 8, premiered: "2024-02-23", studio: "10Gauge", source: "Original", genre: "Sci-Fi, Comedy, Kids", duration: 5, picture: "https://myanimelist.cdn-dena.com/images/anime/1066/90380l.jpg", rating: "G - All Ages", score: nil, description: "Second season of the Gan Gan Ganko-chan anime series."},
   {name: "Working Boys", kind: "TV", producer: "NHK", licencer: "", episode: -1, premiered: "2021-02-23", studio: "", source: "Original", genre: "Kids", duration: 5, picture: "https://myanimelist.cdn-dena.com/images/anime/1100/90646l.jpg", rating: "G - All Ages", score: nil, description: "Cappy (an anthropomorphic baseball cap) and Knitty (an anthropomorphic knitted hat) help residents of their town with small tasks and acts of kindness."},
   {name: "Titipo Titipo", kind: "TV", producer: "", licencer: "", episode: 26, premiered: "2018-01-01", studio: "", source: "Original", genre: "Cars, Kids", duration: 11, picture: "https://myanimelist.cdn-dena.com/images/anime/1521/93267l.jpg", rating: "G - All Ages", score: nil, description: "Say hi to Tayo's new friend - Titipo! Train Center's new born little train Titipo has just passed the driving examination and is prepared to work at the Train Village. Although Titipo dreams of becoming the best train in the world, his curious yet random personality catches him in unforeseen events and troubles everyday. Titipo expands his experience in the greater world and befriends Genie, Diesel, and other little trains. Will Titipo achieve his dream of becoming the best train? Come join the railroad journey and meet Titipo and the little train friends. (Source: Official YouTube channel)"}
-])
-Review.create!([
-  {review_score: 5.0, review_description: "sadasdsad", user_id: 2, anime_id: 36593, review_story_score: 5.0, review_visual_score: 5.0, review_audio_score: 5.0},
-  {review_score: 4.3, review_description: "good", user_id: 3, anime_id: 36593, review_story_score: 5.0, review_visual_score: 3.0, review_audio_score: 5.0},
-  {review_score: 4.7, review_description: "nice", user_id: 3, anime_id: 35073, review_story_score: 4.0, review_visual_score: 5.0, review_audio_score: 5.0},
-  {review_score: 4.0, review_description: "nice", user_id: 3, anime_id: 36522, review_story_score: 5.0, review_visual_score: 4.0, review_audio_score: 3.0},
-  {review_score: 5.0, review_description: "aa", user_id: 3, anime_id: 35589, review_story_score: 5.0, review_visual_score: 5.0, review_audio_score: 5.0}
 ])

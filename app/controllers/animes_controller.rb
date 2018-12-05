@@ -8,7 +8,7 @@ class AnimesController < ApplicationController
   def index
     @animes = Anime.all
     @current_season_animes = Anime.order('premiered DESC').page.per(4)
-    @most_popular_videos = Anime.page.per(4)
+    @most_reviewed_animes = @animes.sort_by{|anime| -anime.reviews.count}
     @reivews = Review.all.order(:created_at => :desc)
     @top_airing_animes = Anime.select_top_airing
     @top_upcoming_animes = Anime.select_top_upcoming
@@ -83,7 +83,10 @@ class AnimesController < ApplicationController
   end
 
   def top
-    @animes = Anime.page params[:page]
+    # @animes = Anime.page params[:page]
+    @most_reviewed_animes = Anime.all
+    @most_reviewed_animes = @most_reviewed_animes.sort_by{|anime| -anime.reviews.count}
+    @most_reviewed_animes = Kaminari.paginate_array(@most_reviewed_animes).page(params[:page])
   end
 
   def anime_airing_rank_list
@@ -101,7 +104,7 @@ class AnimesController < ApplicationController
         end
       else
         anime.check_added = nil
-        anime.review_score = nil 
+        anime.review_score = nil
       end
     end
     @animes = @animes.page params[:page]
@@ -121,7 +124,7 @@ class AnimesController < ApplicationController
         end
       else
         anime.check_added = nil
-        anime.review_score = nil 
+        anime.review_score = nil
       end
     end
     @animes = @animes.page params[:page]
@@ -137,7 +140,6 @@ class AnimesController < ApplicationController
       redirect_to new_user_session_path
     else
       redirect_to(root_url) unless current_user.role == "admin"
-      flash[:alert] = "You don't have a permisson."
     end
   end
 

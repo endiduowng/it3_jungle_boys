@@ -2,7 +2,7 @@
 
 <head>
 	<title>
-		Most Popular Videos
+		Most Reviewed Animes
 	</title>
 	<link rel="stylesheet" type="text/css" href="https://myanimelist.cdn-dena.com/static/assets/css/pc/style-abc038a5d1.css">
 </head>
@@ -12,16 +12,16 @@
 		<div class="wrapper ">
 			<div id="contentWrapper">
 				<div>
-					<h1 class="h1">Most Popular Videos</h1>
+					<h1 class="h1">Most Reviewed Animes</h1>
 				</div>
 				<div id="content" class="pl0 pr0">
 					<div class="navi-seasonal js-navi-seasonal" style="left: 113px;">
-						<%= paginate @animes, :method => :post, style: "display:inline-block;" %>
+						<%= paginate @most_reviewed_animes, :method => :post, style: "display:inline-block;" %>
 					</div>
 					<div class="js-categories-seasonal" style="padding-top: 0px;">
 						<div class="seasonal-anime-list js-seasonal-anime-list js-seasonal-anime-list-key-1 clearfix">
 
-							<% @animes.each do |anime| %>
+							<% @most_reviewed_animes.each do |anime| %>
 							<div class="seasonal-anime js-seasonal-anime" data-genre="1,2,10,11,22">
 								<div>
 									<div class="title">
@@ -72,7 +72,7 @@
 										<span class="remain-time"> <%= anime.premiered %> </span>
 									</div>
 									<div class="scormem">
-										<span class="member fl-r" title="Members">166,262</span>
+										<span class="member fl-r" title="Reviewers"><%= anime.reviews.count %></span>
 										<span class="score" title="Score"><%= anime.score || 0 %></span>
 									</div>
 								</div>
