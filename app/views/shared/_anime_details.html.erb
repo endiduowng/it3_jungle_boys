@@ -88,7 +88,7 @@
 
 <div class="spaceit">
   <span class="dark_text">Aired:</span>
-  Oct 7, 2018 to ?
+  Oct 7, 2018
   </div>
 
   <div class="spaceit">
@@ -137,6 +137,7 @@
       <div class="statistics-info info1">
   </div>
 </div>
+<br>
 <div class="spaceit po-r js-statistics-info di-ib" data-id="info2">
   <span class="dark_text">Ranked:</span>
   <%= @list_animes.find_index(@anime) + 1 %>
@@ -147,12 +148,8 @@
   <%= anime.rating %>
 </div>
 <div class="spaceit">
-  <span class="dark_text">Members:</span>
-    162,725
-</div>
-<div>
-  <span class="dark_text">Favorites:</span>
-  1,258
+  <span class="dark_text">Reviewers:</span>
+  <%= anime.reviews.count %>
 </div>
 
 
