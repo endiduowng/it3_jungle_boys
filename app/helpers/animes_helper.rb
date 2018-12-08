@@ -9,9 +9,9 @@ module AnimesHelper
 			pre_s = "Spring"
 		when "Spring"
 			pre_s = "Winter"
+			year = year - 1
 		when "Winter"
 			pre_s = "Fall"
-			year = year - 1
 		end
 		return pre_s + ' ' + year.to_s
 	end
@@ -22,13 +22,13 @@ module AnimesHelper
 		case cur_s
 		when "Winter"
 			pre_s = "Spring"
+			year = year + 1
 		when "Spring"
 			pre_s = "Summer"
 		when "Summer"
 			pre_s = "Fall"
 		when "Fall"
 			pre_s = "Winter"
-			year = year + 1
 		end
 		return pre_s + ' ' + year.to_s
 	end
